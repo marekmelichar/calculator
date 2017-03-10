@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 class Table_2 extends Component {
+  // componentWillReceiveProps(nextProps) {
+  //   this.props.celkova_cena_za_komponenty_v_setu(this.ceny_komponent_v_setu_SUMA);
+  //
+  // }
 
   constructor() {
     super();
@@ -19,9 +23,9 @@ class Table_2 extends Component {
     this.handleCenaZaSet = this.handleCenaZaSet.bind(this);
   }
 
-  componentDidMount() {
-    this.props.celkova_cena_za_komponenty_v_setu(this.ceny_komponent_v_setu_SUMA);
-  }
+  // componentDidMount() {
+  //   this.props.celkova_cena_za_komponenty_v_setu(this.ceny_komponent_v_setu_SUMA);
+  // }
 
   componentDidUpdate() {
     this.props.pocet_komponent_v_setu_SUMA(this.refs.Komponenty.value);
@@ -66,7 +70,9 @@ class Table_2 extends Component {
     let pocet_komponent_v_setu_SUMA = pocet_komponent_v_setu_array.reduce((a, b) => a + b, 0);
     let ceny_komponent_v_setu_SUMA = ceny_komponent_v_setu_array.reduce((a, b) => a + b, 0);
 
-    this.ceny_komponent_v_setu_SUMA = ceny_komponent_v_setu_SUMA;
+    // this.ceny_komponent_v_setu_SUMA = ceny_komponent_v_setu_SUMA;
+
+    this.props.celkova_cena_za_komponenty_v_setu(ceny_komponent_v_setu_SUMA);
 
     return (
   	  <table className="table-2">

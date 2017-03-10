@@ -6,6 +6,10 @@ import * as actions from '../../actions';
 
 class Table_Results extends Component {
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ celkova_cena_za_komponenty_v_setu_SUMA: nextProps.celkova_cena_za_komponenty_v_setu_SUMA });
+  }
+
   constructor() {
     super();
     this.state = {
@@ -16,14 +20,13 @@ class Table_Results extends Component {
       objednavani_komponenty: 11.03,
       skladovani_centralni_sklad_komponenty: 53.39,
       skladovani_COS_komponenty: 45.22,
-      vychystavani_komponenty: 20.78
+      vychystavani_komponenty: 20.78,
+      celkova_cena_za_komponenty_v_setu_SUMA: 0
     };
   }
 
-
-
   render() {
-// console.log(this.props.celkovy_pocet_pouziti_za_rok);
+
     let objednavani = this.state.objednavani;
     let skladovani_centralni_sklad = this.state.skladovani_centralni_sklad;
     let skladovani_COS = this.state.skladovani_COS;
@@ -95,7 +98,7 @@ class Table_Results extends Component {
             <td>CPT set</td>
             <td>{parseInt(this.props.cena_za_komplet_set) + suma}</td>
             <td>Komponenty</td>
-            <td>{(this.props.celkova_cena_za_komponenty_v_setu_SUMA + suma_komponenty).toFixed(2)}</td>
+            <td>{(parseInt(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + suma_komponenty).toFixed(2)}</td>
             <td>{((parseInt(this.props.cena_za_komplet_set) + suma) - (this.props.celkova_cena_za_komponenty_v_setu_SUMA + suma_komponenty).toFixed(2)).toFixed(2)}</td>
           </tr>
           <tr>
@@ -103,7 +106,7 @@ class Table_Results extends Component {
             <td>1ks CPT set</td>
             <td>{((parseInt(this.props.cena_za_komplet_set) + suma) * parseInt(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2)}</td>
             <td>Komponenty</td>
-            <td>{((parseInt(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + suma) * parseInt(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2)}</td>
+            <td>{((parseInt(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + suma_komponenty) * parseInt(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2)}</td>
             <td>{(((parseInt(this.props.cena_za_komplet_set) + suma) * parseInt(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2) - ((parseInt(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + suma) * parseInt(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2)).toFixed(2)}</td>
           </tr>
         </tbody>
@@ -117,7 +120,7 @@ const mapStateToProps = state => {
   // whatever is returned here, gets in as a prop
   return {
     cena_za_komplet_set: state.cena_za_set.cena || 0,
-    celkova_cena_za_komponenty_v_setu_SUMA: state.celkova_cena_za_komponenty_v_setu.cena,
+    celkova_cena_za_komponenty_v_setu_SUMA: state.celkova_cena_za_komponenty_v_setu.cena || 0,
     celkovy_pocet_pouziti_za_rok: state.pocet_pouziti_za_rok.pocet || 0
   };
 };
