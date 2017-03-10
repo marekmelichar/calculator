@@ -1,0 +1,27 @@
+input {
+  text-align: right;
+}
+
+.products-main-table {
+  width: 100%;
+}
+
+.table-1,
+.table-2,
+.table-3 {
+  margin-bottom: 3em;
+}
+
+.table-4 {
+  margin-bottom: 1em;
+}
+
+.table-results {
+  margin-top: 3em;
+}
+
+.finalni-uspora:before {
+  content: '';
+  display: block;
+  height: 50px;
+}
