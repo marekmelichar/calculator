@@ -5,6 +5,7 @@ import PocetKomponentVsetu from './reducer_pocet_komponent_v_setu';
 import CenaZaSet from './reducer_cena_za_set';
 import CelkovaCenaZaKomponentyVSetu from './reducer_celkova_cena_za_komponenty_v_setu';
 import PocetPouzitiZaRok from './reducer_pocet_pouziti_za_rok';
+import Algo_platy from './reducer_algo_platy';
 
 // everything inside is a piece of state
 const rootReducer = combineReducers({
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   pocet_komponent_v_setu: PocetKomponentVsetu,
   cena_za_set: CenaZaSet,
   celkova_cena_za_komponenty_v_setu: CelkovaCenaZaKomponentyVSetu,
-  pocet_pouziti_za_rok: PocetPouzitiZaRok
+  pocet_pouziti_za_rok: PocetPouzitiZaRok,
+  algo_platy: Algo_platy
 });
 
 export default rootReducer;

@@ -7,6 +7,7 @@ import * as actions from '../../actions';
 class Table_Results extends Component {
 
   componentWillReceiveProps(nextProps) {
+    // console.log(nextProps.skladovani_COS_sestra);
     this.setState({ celkova_cena_za_komponenty_v_setu_SUMA: nextProps.celkova_cena_za_komponenty_v_setu_SUMA });
   }
 
@@ -121,7 +122,8 @@ const mapStateToProps = state => {
   return {
     cena_za_komplet_set: state.cena_za_set.cena || 0,
     celkova_cena_za_komponenty_v_setu_SUMA: state.celkova_cena_za_komponenty_v_setu.cena || 0,
-    celkovy_pocet_pouziti_za_rok: state.pocet_pouziti_za_rok.pocet || 0
+    celkovy_pocet_pouziti_za_rok: state.pocet_pouziti_za_rok.pocet || 0,
+    skladovani_COS_sestra: state.algo_platy.sestra
   };
 };
 

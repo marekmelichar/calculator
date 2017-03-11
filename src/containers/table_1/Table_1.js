@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
-export default class Table_1 extends Component {
+import { connect } from 'react-redux';
+
+import * as actions from '../../actions';
+
+class Table_1 extends Component {
   constructor() {
     super();
     this.state = {
@@ -16,10 +20,12 @@ export default class Table_1 extends Component {
 
   handleSestra(event) {
     this.setState({sestra: event.target.value});
+    this.props.algo_plat_sestry(event.target.value);
   }
 
   handleSkladnik(event) {
     this.setState({skladnik: event.target.value});
+    this.props.algo_plat_skladnika(event.target.value);
   }
 
   handleUcetni(event) {
@@ -55,3 +61,13 @@ export default class Table_1 extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  // console.log(state);
+  // whatever is returned here, gets in as a prop
+  return {
+
+  };
+};
+
+export default connect(mapStateToProps, actions)(Table_1);

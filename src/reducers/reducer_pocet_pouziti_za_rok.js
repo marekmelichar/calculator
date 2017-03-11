@@ -3,7 +3,6 @@ import { POCET_POUZITI_ZA_ROK } from '../actions/index';
 let INITIAL_STATE = 0;
 
 export default function(state = INITIAL_STATE, action) {
-  // console.log(action.cena);
   switch (action.type) {
     case POCET_POUZITI_ZA_ROK:
       return({

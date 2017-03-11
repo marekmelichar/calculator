@@ -8,6 +8,8 @@ export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const CENA_ZA_SET = 'CENA_ZA_SET';
 export const CELKOVA_CENA_ZA_KOMPONENTY_V_SETU = 'CELKOVA_CENA_ZA_KOMPONENTY_V_SETU';
 export const POCET_POUZITI_ZA_ROK = 'POCET_POUZITI_ZA_ROK';
+export const ALGO_PLAT_SESTRY = 'ALGO_PLAT_SESTRY';
+export const ALGO_PLAT_SKLADNIKA = 'ALGO_PLAT_SKLADNIKA';
 
 export const addItem = (komponenta, pocet_ks, cena_ks, cena_celkem) => {
   return {
@@ -53,5 +55,21 @@ export const pocet_pouziti_za_rok = (pocet) => {
   return {
     type: POCET_POUZITI_ZA_ROK,
     pocet
+  };
+};
+
+export const algo_plat_sestry = (plat) => {
+  // console.log(plat);
+  return {
+    type: ALGO_PLAT_SESTRY,
+    plat
+  };
+};
+
+export const algo_plat_skladnika = (plat) => {
+  // console.log(plat);
+  return {
+    type: ALGO_PLAT_SKLADNIKA,
+    plat
   };
 };
