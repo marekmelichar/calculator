@@ -252,6 +252,10 @@ class Table_Results extends Component {
     suma = (parseFloat(objednavani_naklady_na_ks) + parseFloat(skladovani_inventarizace_celkove_naklady_na_ks) + parseFloat(skladovani_COS_sestra_naklady_na_kus) + parseFloat(vychystavani_evidence_celkove_naklady_na_ks)).toFixed(2)
     suma_komponenty = parseFloat(objednavani_naklady) + parseFloat(skladovani_inventarizace_celkove_naklady) + parseFloat(skladovani_COS_sestra_naklady) + parseFloat(vychystavani_evidence_celkove_naklady)
 
+    let vystup_celkove_naklady_u_jedne_operace_CPT_set = parseFloat(this.props.cena_za_komplet_set) + parseFloat(suma)
+    let vystup_celkove_naklady_u_jedne_operace_Komponenty = (parseFloat(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + parseFloat(suma_komponenty)).toFixed(2)
+    let vystup_celkove_naklady_za_rok_1_CPT_set = ((parseFloat(this.props.cena_za_komplet_set) + parseFloat(suma)) * parseFloat(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2)
+    let vystup_celkove_naklady_za_rok_Komponenty = ((parseFloat(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + parseFloat(suma_komponenty)) * parseFloat(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2)
 
     return (
   	  <table className="table-results">
@@ -317,22 +321,24 @@ class Table_Results extends Component {
           <tr>
             <td>Celkové náklady na použití u jedné operace</td>
             <td>CPT set</td>
-            <td>{parseInt(this.props.cena_za_komplet_set) + suma}</td>
+            <td>{vystup_celkove_naklady_u_jedne_operace_CPT_set}</td>
             <td>Komponenty</td>
-            <td>{(parseInt(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + suma_komponenty).toFixed(2)}</td>
-            <td>{((parseInt(this.props.cena_za_komplet_set) + suma) - (this.props.celkova_cena_za_komponenty_v_setu_SUMA + suma_komponenty).toFixed(2)).toFixed(2)}</td>
+            <td>{vystup_celkove_naklady_u_jedne_operace_Komponenty}</td>
+            <td>{(vystup_celkove_naklady_u_jedne_operace_CPT_set - vystup_celkove_naklady_u_jedne_operace_Komponenty).toFixed(2)}</td>
+            {/* <td>{(parseFloat(parseFloat(this.props.cena_za_komplet_set) + parseFloat(suma)) - parseFloat(this.props.celkova_cena_za_komponenty_v_setu_SUMA + suma_komponenty).toFixed(2)).toFixed(2)}</td> */}
           </tr>
           <tr>
             <td>Celkové náklady na použití za rok</td>
             <td>1ks CPT set</td>
-            <td>{((parseInt(this.props.cena_za_komplet_set) + suma) * parseInt(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2)}</td>
+            <td>{vystup_celkove_naklady_za_rok_1_CPT_set}</td>
             <td>Komponenty</td>
-            <td>{((parseInt(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + suma_komponenty) * parseInt(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2)}</td>
-            <td>{(((parseInt(this.props.cena_za_komplet_set) + suma) * parseInt(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2) - ((parseInt(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + suma) * parseInt(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2)).toFixed(2)}</td>
+            <td>{vystup_celkove_naklady_za_rok_Komponenty}</td>
+            <td>{(vystup_celkove_naklady_za_rok_1_CPT_set - vystup_celkove_naklady_za_rok_Komponenty).toFixed(2)}</td>
           </tr>
         </tbody>
       </table>
     );
+    // console.log();
   }
 }
 
