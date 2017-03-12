@@ -87,8 +87,8 @@ class Table_Results extends Component {
     let skladovani_COS_komponenty = this.state.skladovani_COS_komponenty;
     let vychystavani_komponenty = this.state.vychystavani_komponenty;
 
-    let suma = +(objednavani+skladovani_centralni_sklad+skladovani_COS+vychystavani).toFixed(2);
-    let suma_komponenty = +(objednavani_komponenty+skladovani_centralni_sklad_komponenty+skladovani_COS_komponenty+vychystavani_komponenty).toFixed(2);
+    // let suma = +(objednavani+skladovani_centralni_sklad+skladovani_COS+vychystavani).toFixed(2);
+    // let suma_komponenty = +(objednavani_komponenty+skladovani_centralni_sklad_komponenty+skladovani_COS_komponenty+vychystavani_komponenty).toFixed(2);
 
     //
     // LOGIKA
@@ -108,6 +108,9 @@ class Table_Results extends Component {
     let skladovani_prijem_stanoveny_cas, skladovani_prijem_kalkulovatelny_cas, skladovani_prijem_casova_rezie_na_ks, skladovani_prijem_naklady_na_ks, skladovani_prijem_casova_rezie, skladovani_prijem_naklady;
     let skladovani_vydej_stanoveny_cas, skladovani_vydej_kalkulovatelny_cas, skladovani_vydej_casova_rezie_na_ks, skladovani_vydej_naklady_na_ks, skladovani_vydej_casova_rezie, skladovani_vydej_naklady;
     let skladovani_kontrola_expirace_stanoveny_cas, skladovani_kontrola_expirace_kalkulovany_cas, skladovani_kontrola_expirace_casova_rezie_na_ks, skladovani_kontrola_expirace_naklady_na_ks, skladovani_kontrola_expirace_casova_rezie, skladovani_kontrola_expirace_naklady;
+    let skladovani_inventarizace_stanoveny_cas, skladovani_inventarizace_kalkulovany_cas, skladovani_inventarizace_casova_rezie_na_ks, skladovani_inventarizace_naklady_na_ks, skladovani_inventarizace_casova_rezie, skladovani_inventarizace_naklady, skladovani_inventarizace_celkove_naklady_na_ks, skladovani_inventarizace_celkove_naklady;
+    let vychystavani_ze_skladu_na_sale_stanoveny_cas, vychystavani_ze_skladu_na_sale_kalkulovany_cas, vychystavani_ze_skladu_na_sale_casova_rezie_na_ks, vychystavani_ze_skladu_na_sale_naklady_na_ks, vychystavani_ze_skladu_na_sale_casova_rezie, vychystavani_ze_skladu_na_sale_naklady;
+    let vychystavani_evidence_stanoveny_cas, vychystavani_evidence_kalkulovany_cas, vychystavani_evidence_casova_rezie_na_ks, vychystavani_evidence_naklady_na_ks, vychystavani_evidence_casova_rezie, vychystavani_evidence_naklady;
 
 
     //
@@ -178,6 +181,40 @@ class Table_Results extends Component {
     // 4. radek - Inventarizace - 2 sestry
     skladovani_inventarizace_stanoveny_cas = 2.5
     skladovani_inventarizace_kalkulovany_cas = skladovani_inventarizace_stanoveny_cas
+    skladovani_inventarizace_casova_rezie_na_ks = skladovani_inventarizace_kalkulovany_cas / this.state.pouziti_za_rok
+    skladovani_inventarizace_naklady_na_ks = parseFloat((skladovani_inventarizace_casova_rezie_na_ks * minutove_skladnik).toFixed(2))
+    skladovani_inventarizace_casova_rezie = skladovani_inventarizace_casova_rezie_na_ks * this.state.pocet_komponent_v_setu_input
+    skladovani_inventarizace_naklady = parseFloat((skladovani_inventarizace_casova_rezie * minutove_skladnik).toFixed(2))
+
+    // CELKEM - Inventarizace
+    skladovani_inventarizace_celkove_naklady_na_ks = parseFloat((skladovani_prijem_naklady_na_ks + skladovani_vydej_naklady_na_ks + skladovani_kontrola_expirace_naklady_na_ks + skladovani_inventarizace_naklady_na_ks).toFixed(2));
+    skladovani_inventarizace_celkove_naklady = parseFloat((skladovani_prijem_naklady + skladovani_vydej_naklady + skladovani_kontrola_expirace_naklady + skladovani_inventarizace_naklady).toFixed(2));
+
+    // Vychystavani - sestra CS TABULKA
+
+    // 1.radek - Vychystavani ze skladu na sale
+    vychystavani_ze_skladu_na_sale_stanoveny_cas = 10
+    vychystavani_ze_skladu_na_sale_kalkulovany_cas = vychystavani_ze_skladu_na_sale_stanoveny_cas
+    vychystavani_ze_skladu_na_sale_casova_rezie_na_ks = vychystavani_ze_skladu_na_sale_kalkulovany_cas / 60
+    vychystavani_ze_skladu_na_sale_naklady_na_ks = parseFloat((vychystavani_ze_skladu_na_sale_casova_rezie_na_ks * minutove_sestra).toFixed(2))
+    vychystavani_ze_skladu_na_sale_casova_rezie = vychystavani_ze_skladu_na_sale_casova_rezie_na_ks * this.state.pocet_komponent_v_setu_input
+    vychystavani_ze_skladu_na_sale_naklady = parseFloat((vychystavani_ze_skladu_na_sale_casova_rezie * minutove_sestra).toFixed(2))
+
+    // 2.radek - Vychystavani ze skladu na sale
+    vychystavani_evidence_stanoveny_cas = 15
+    vychystavani_evidence_kalkulovany_cas = vychystavani_evidence_stanoveny_cas
+    vychystavani_evidence_casova_rezie_na_ks = vychystavani_evidence_stanoveny_cas / 60
+    vychystavani_evidence_naklady_na_ks = parseFloat((vychystavani_evidence_casova_rezie_na_ks * minutove_sestra).toFixed(2))
+    vychystavani_evidence_casova_rezie = vychystavani_evidence_casova_rezie_na_ks * this.state.pocet_komponent_v_setu_input
+    vychystavani_evidence_naklady = parseFloat((vychystavani_evidence_casova_rezie * minutove_sestra).toFixed(2))
+
+    // Vychystavani - sestra CS CELKEM
+    let vychystavani_evidence_celkove_naklady_na_ks, vychystavani_evidence_celkove_naklady;
+    vychystavani_evidence_celkove_naklady_na_ks = parseFloat((vychystavani_ze_skladu_na_sale_naklady_na_ks + vychystavani_evidence_naklady_na_ks).toFixed(2))
+    vychystavani_evidence_celkove_naklady = parseFloat((vychystavani_ze_skladu_na_sale_naklady + vychystavani_evidence_naklady).toFixed(2))
+
+
+
 
 
 
@@ -211,6 +248,11 @@ class Table_Results extends Component {
     skladovani_COS_sestra_naklady_na_kus = (prijem_naklady_na_ks + expirace_naklady_na_ks + inventarizace_naklady_na_kus).toFixed(2)
     skladovani_COS_sestra_naklady = (prijem_naklady + expirace_naklady + inventarizace_naklady).toFixed(2)
 
+    let suma, suma_komponenty;
+    suma = (parseFloat(objednavani_naklady_na_ks) + parseFloat(skladovani_inventarizace_celkove_naklady_na_ks) + parseFloat(skladovani_COS_sestra_naklady_na_kus) + parseFloat(vychystavani_evidence_celkove_naklady_na_ks)).toFixed(2)
+    suma_komponenty = parseFloat(objednavani_naklady) + parseFloat(skladovani_inventarizace_celkove_naklady) + parseFloat(skladovani_COS_sestra_naklady) + parseFloat(vychystavani_evidence_celkove_naklady)
+
+
     return (
   	  <table className="table-results">
         <thead>
@@ -231,11 +273,11 @@ class Table_Results extends Component {
           <tr>
             <td>Skladování centrální sklad - pracovník CS</td>
             <td>CPT set</td>
-            <td>{this.state.skladovani_centralni_sklad.toFixed(2)} kč</td>
-            {/* <td>{skladovani_naklady_na_ks} kč</td> */}
+            {/* <td>{this.state.skladovani_centralni_sklad.toFixed(2)} kč</td> */}
+            <td>{skladovani_inventarizace_celkove_naklady_na_ks} kč</td>
             <td>Komponenty</td>
-            <td>{this.state.skladovani_centralni_sklad_komponenty.toFixed(2)}</td>
-            {/* <td>{skladovani_naklady}</td> */}
+            {/* <td>{this.state.skladovani_centralni_sklad_komponenty.toFixed(2)}</td> */}
+            <td>{skladovani_inventarizace_celkove_naklady}</td>
           </tr>
           <tr>
             <td>Skladování COS - sestra</td>
@@ -249,16 +291,18 @@ class Table_Results extends Component {
           <tr>
             <td>Vychystávání - sestra CS</td>
             <td>CPT set</td>
-            <td>{this.state.vychystavani.toFixed(2)} kč</td>
+            {/* <td>{this.state.vychystavani.toFixed(2)} kč</td> */}
+            <td>{vychystavani_evidence_celkove_naklady_na_ks} kč</td>
             <td>Komponenty</td>
-            <td>{this.state.vychystavani_komponenty.toFixed(2)}</td>
+            {/* <td>{this.state.vychystavani_komponenty.toFixed(2)}</td> */}
+            <td>{vychystavani_evidence_celkove_naklady}</td>
           </tr>
           <tr>
             <td>Celkem</td>
             <td>1ks CPT set</td>
             <td>{suma} kč</td>
             <td>Komponenty</td>
-            <td>{suma_komponenty} kč</td>
+            <td>{suma_komponenty.toFixed(2)} kč</td>
           </tr>
         </tbody>
         <tbody className="finalni-uspora">
