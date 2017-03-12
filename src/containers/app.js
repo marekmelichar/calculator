@@ -14,9 +14,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Table_1 />
-        <Table_2 />
-        <Table_3 />
+        <section className="inputs-wrap">
+          <h1>VSTUPNÍ ÚDAJE</h1>
+          <Table_1 />
+          <Table_2 />
+          <Table_3 />
+        </section>
         <Table_4 />
         <Table_Results />
       </div>

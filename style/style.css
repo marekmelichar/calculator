@@ -1,3 +1,8 @@
+body {
+  margin: 25px;
+  font-family: arial, sans-serif;
+}
+
 input {
   text-align: right;
 }
@@ -24,4 +29,18 @@ input {
   content: '';
   display: block;
   height: 50px;
+}
+
+.inputs-wrap {
+  padding: 15px;
+  border: 1px dotted #000;
+}
+
+.inputs-wrap h1 {
+  width: 196px;
+  margin-top: -40px;
+  margin-left: 40px;
+  background-color: #fff;
+  padding: 0.5em;
+  color: #56a2ac;
 }
