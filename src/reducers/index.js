@@ -5,7 +5,7 @@ import PocetKomponentVsetu from './reducer_pocet_komponent_v_setu';
 import CenaZaSet from './reducer_cena_za_set';
 import CelkovaCenaZaKomponentyVSetu from './reducer_celkova_cena_za_komponenty_v_setu';
 import PocetPouzitiZaRok from './reducer_pocet_pouziti_za_rok';
-import Algo_platy from './reducer_algo_platy';
+import Algo_platy from './reducer_logic';
 
 // everything inside is a piece of state
 const rootReducer = combineReducers({

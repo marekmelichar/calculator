@@ -24,7 +24,7 @@ class Table_2 extends Component {
   }
 
   // componentDidMount() {
-  //   this.props.celkova_cena_za_komponenty_v_setu(this.ceny_komponent_v_setu_SUMA);
+  //   this.props.pocet_komponent_v_setu_SUMA(this.refs.Komponenty.value);
   // }
 
   componentDidUpdate() {

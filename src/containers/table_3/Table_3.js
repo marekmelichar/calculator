@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
-export default class Table_3 extends Component {
+import { connect } from 'react-redux';
+
+import * as actions from '../../actions';
+
+class Table_3 extends Component {
   constructor() {
     super();
     this.state = {
@@ -14,10 +18,12 @@ export default class Table_3 extends Component {
 
   handle_vykony_na_oddeleni_za_rok(event) {
     this.setState({vykony_na_oddeleni_za_rok: event.target.value});
+    return this.props.vykony_na_oddeleni_za_rok(event.target.value);
   }
 
   handle_pomer_pouziti(event) {
     this.setState({pomer_pouziti: event.target.value});
+    return this.props.pomer_vyuziti(event.target.value);
   }
 
   // handleSkladnik(event) {
@@ -49,3 +55,13 @@ export default class Table_3 extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  // console.log(state);
+  // whatever is returned here, gets in as a prop
+  return {
+
+  };
+};
+
+export default connect(mapStateToProps, actions)(Table_3);

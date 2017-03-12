@@ -10,6 +10,8 @@ export const CELKOVA_CENA_ZA_KOMPONENTY_V_SETU = 'CELKOVA_CENA_ZA_KOMPONENTY_V_S
 export const POCET_POUZITI_ZA_ROK = 'POCET_POUZITI_ZA_ROK';
 export const ALGO_PLAT_SESTRY = 'ALGO_PLAT_SESTRY';
 export const ALGO_PLAT_SKLADNIKA = 'ALGO_PLAT_SKLADNIKA';
+export const VYKONY_ODDELENI_ZA_ROK = 'VYKONY_ODDELENI_ZA_ROK';
+export const POMER_VYUZITI = 'POMER_VYUZITI';
 
 export const addItem = (komponenta, pocet_ks, cena_ks, cena_celkem) => {
   return {
@@ -71,5 +73,21 @@ export const algo_plat_skladnika = (plat) => {
   return {
     type: ALGO_PLAT_SKLADNIKA,
     plat
+  };
+};
+
+export const vykony_na_oddeleni_za_rok = (vykon) => {
+  // console.log(plat);
+  return {
+    type: VYKONY_ODDELENI_ZA_ROK,
+    vykon
+  };
+};
+
+export const pomer_vyuziti = (pomer) => {
+  // console.log(plat);
+  return {
+    type: POMER_VYUZITI,
+    pomer
   };
 };
