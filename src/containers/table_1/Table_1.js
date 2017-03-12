@@ -18,10 +18,10 @@ class Table_1 extends Component {
     this.handleUcetni = this.handleUcetni.bind(this);
   }
 
-  componentDidMount() {
-    this.props.algo_plat_sestry(this.state.sestra);
-    this.props.algo_plat_skladnika(this.state.skladnik);
-  }
+  // componentDidMount() {
+  //   this.props.algo_plat_sestry(this.state.sestra);
+  //   this.props.algo_plat_skladnika(this.state.skladnik);
+  // }
 
   handleSestra(event) {
     this.setState({sestra: event.target.value});

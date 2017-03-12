@@ -24,12 +24,10 @@ class Table_2 extends Component {
   }
 
   // componentDidMount() {
-  //   this.props.pocet_komponent_v_setu_SUMA(this.refs.Komponenty.value);
+  //   this.props.pocet_pouziti_za_rok(this.state.pouziti);
+  //   this.props.pocet_komponent_v_setu_SUMA(this.state.komponenty);
+  //   this.props.cena_za_set(this.state.cena_za_set);
   // }
-
-  componentDidUpdate() {
-    this.props.pocet_komponent_v_setu_SUMA(this.refs.Komponenty.value);
-  }
 
   handlePouziti(event) {
     let value = event.target.value;
