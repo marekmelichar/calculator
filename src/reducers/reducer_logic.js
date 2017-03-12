@@ -13,7 +13,7 @@ export default function(state = INITIAL_STATE, action) {
 
   switch (action.type) {
     case POCET_POUZITI_ZA_ROK:
-      let pouziti_za_rok = parseInt(action.pocet)
+      let pouziti_za_rok = parseFloat(action.pocet)
       // mesic = rok / 12;
       // tyden = (rok / 52).toFixed(3); // M11
       // den = rok / M2
@@ -25,7 +25,7 @@ export default function(state = INITIAL_STATE, action) {
     break;
 
     case ALGO_PLAT_SKLADNIKA:
-      let mesicne_skladnik = parseInt(action.plat)
+      let mesicne_skladnik = parseFloat(action.plat)
       // denne_skladnik = mesicne_skladnik / (Logic.kalkulovatelna_pracovni_doba.N2 / 12)
       // hodinove_skladnik = mesicne_skladnik / (Logic.N3 / 12)
       // minutove_skladnik = hodinove_skladnik / 60
@@ -37,7 +37,7 @@ export default function(state = INITIAL_STATE, action) {
     break;
 
     case POCET_KOMPONENT_V_SETU:
-      let pocet_komponent_v_setu_input = parseInt(action.suma)
+      let pocet_komponent_v_setu_input = parseFloat(action.suma)
 
       return({
         ...state,
@@ -46,7 +46,7 @@ export default function(state = INITIAL_STATE, action) {
       break;
 
     case VYKONY_ODDELENI_ZA_ROK:
-      let vykon_oddeleni_za_rok_input = parseInt(action.vykon)
+      let vykon_oddeleni_za_rok_input = parseFloat(action.vykon)
 
       // // M28
       // M22 = 100 - pomer_vyuziti_input
@@ -61,7 +61,7 @@ export default function(state = INITIAL_STATE, action) {
       break;
 
     case POMER_VYUZITI:
-      let pomer_vyuziti_input = parseInt(action.pomer)
+      let pomer_vyuziti_input = parseFloat(action.pomer)
 
       // M28
       // M22 = 100 - pomer_vyuziti_input
@@ -76,7 +76,7 @@ export default function(state = INITIAL_STATE, action) {
       break;
 
     case ALGO_PLAT_SESTRY:
-      let mesicne_sestra = parseInt(action.plat);
+      let mesicne_sestra = parseFloat(action.plat);
       // let skladovani_COS_sestra_naklady_na_kus = prijem_naklady_na_ks + expirace_naklady_na_ks + inventarizace_naklady_na_kus
       // let skladovani_COS_sestra_naklady = prijem_naklady + expirace_naklady + inventarizace_naklady
       // denne_sestra = mesicne_sestra / (Logic.kalkulovatelna_pracovni_doba.N2 / 12)

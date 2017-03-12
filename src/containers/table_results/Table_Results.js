@@ -104,6 +104,11 @@ class Table_Results extends Component {
     let M22, M23, M26, M28;
     let inventarizace_stanoveny_cas, inventarizace_kalkulovany_cas, inventarizace_casova_rezie_na_kus, inventarizace_naklady_na_kus, inventarizace_casova_rezie, inventarizace_naklady;
     let skladovani_COS_sestra_naklady_na_kus, skladovani_COS_sestra_naklady;
+    let objednavani_stanoveny_cas, objednavani_kalkulovatelny_cas, objednavani_casova_rezie_na_ks, objednavani_naklady_na_ks, objednavani_casova_rezie, objednavani_naklady;
+    let skladovani_prijem_stanoveny_cas, skladovani_prijem_kalkulovatelny_cas, skladovani_prijem_casova_rezie_na_ks, skladovani_prijem_naklady_na_ks, skladovani_prijem_casova_rezie, skladovani_prijem_naklady;
+    let skladovani_vydej_stanoveny_cas, skladovani_vydej_kalkulovatelny_cas, skladovani_vydej_casova_rezie_na_ks, skladovani_vydej_naklady_na_ks, skladovani_vydej_casova_rezie, skladovani_vydej_naklady;
+    let skladovani_kontrola_expirace_stanoveny_cas, skladovani_kontrola_expirace_kalkulovany_cas, skladovani_kontrola_expirace_casova_rezie_na_ks, skladovani_kontrola_expirace_naklady_na_ks, skladovani_kontrola_expirace_casova_rezie, skladovani_kontrola_expirace_naklady;
+
 
     //
     // LOGIKA PRO POCET_POUZITI_ZA_ROK
@@ -135,6 +140,47 @@ class Table_Results extends Component {
     hodinove_sestra = mesicne_sestra / (Logic.N3 / 12)
     minutove_sestra = (hodinove_sestra / 60).toFixed(2)
 
+    // Objednavani - pracovnik CS - TABULKA :
+
+    // 1. radek - Objednavani
+    objednavani_stanoveny_cas = 5
+    objednavani_kalkulovatelny_cas = pouziti_za_tyden > 50 ? objednavani_stanoveny_cas : objednavani_stanoveny_cas / 4 // if M11 > 50 bude to 5 else 1.25
+    objednavani_casova_rezie_na_ks = parseFloat((objednavani_kalkulovatelny_cas / pouziti_za_tyden).toFixed(3))
+    objednavani_naklady_na_ks = parseFloat((objednavani_casova_rezie_na_ks * minutove_skladnik).toFixed(2))
+    objednavani_casova_rezie = parseFloat(objednavani_casova_rezie_na_ks * this.state.pocet_komponent_v_setu_input)
+    objednavani_naklady = parseFloat((objednavani_casova_rezie * minutove_skladnik).toFixed(2))
+
+    // Skladování centrální sklad - pracovník CS - TABULKA :
+    // 1.radek - Prijem
+    skladovani_prijem_stanoveny_cas = 4
+    skladovani_prijem_kalkulovatelny_cas = pouziti_za_tyden > 50 ? skladovani_prijem_stanoveny_cas : skladovani_prijem_stanoveny_cas / 4 // if M11 > 50 bude to 5 else 1.25
+    skladovani_prijem_casova_rezie_na_ks = parseFloat((skladovani_prijem_kalkulovatelny_cas / pouziti_za_tyden).toFixed(3))
+    skladovani_prijem_naklady_na_ks = parseFloat((skladovani_prijem_casova_rezie_na_ks * minutove_skladnik).toFixed(2))
+    skladovani_prijem_casova_rezie = skladovani_prijem_casova_rezie_na_ks * this.state.pocet_komponent_v_setu_input
+    skladovani_prijem_naklady = parseFloat((skladovani_prijem_casova_rezie * minutove_skladnik).toFixed(2))
+
+    // 2. radek - Vydej
+    skladovani_vydej_stanoveny_cas = 4
+    skladovani_vydej_kalkulovatelny_cas = pouziti_za_tyden > 50 ? skladovani_vydej_stanoveny_cas : skladovani_vydej_stanoveny_cas / 4 // if M11 > 50 bude to 5 else 1.25
+    skladovani_vydej_casova_rezie_na_ks = parseFloat((skladovani_vydej_kalkulovatelny_cas / pouziti_za_tyden).toFixed(3))
+    skladovani_vydej_naklady_na_ks = parseFloat((skladovani_vydej_casova_rezie_na_ks * minutove_skladnik).toFixed(2))
+    skladovani_vydej_casova_rezie = skladovani_vydej_casova_rezie_na_ks * this.state.pocet_komponent_v_setu_input
+    skladovani_vydej_naklady = parseFloat((skladovani_vydej_casova_rezie * minutove_skladnik).toFixed(2))
+
+    // 3. radek - Kontrola expirace
+    skladovani_kontrola_expirace_stanoveny_cas = 4
+    skladovani_kontrola_expirace_kalkulovany_cas = skladovani_kontrola_expirace_stanoveny_cas
+    skladovani_kontrola_expirace_casova_rezie_na_ks = parseFloat((skladovani_kontrola_expirace_kalkulovany_cas / pouziti_za_tyden).toFixed(3))
+    skladovani_kontrola_expirace_naklady_na_ks = parseFloat((skladovani_kontrola_expirace_casova_rezie_na_ks * minutove_skladnik).toFixed(2))
+    skladovani_kontrola_expirace_casova_rezie = skladovani_kontrola_expirace_casova_rezie_na_ks * this.state.pocet_komponent_v_setu_input
+    skladovani_kontrola_expirace_naklady = parseFloat((skladovani_kontrola_expirace_casova_rezie * minutove_skladnik).toFixed(2))
+
+    // 4. radek - Inventarizace - 2 sestry
+    skladovani_inventarizace_stanoveny_cas = 2.5
+    skladovani_inventarizace_kalkulovany_cas = skladovani_inventarizace_stanoveny_cas
+
+
+
     // Skladovani COS - sestra - TABULKA :
 
     // 1. radek naklady na prijem(prevzeti)
@@ -165,9 +211,6 @@ class Table_Results extends Component {
     skladovani_COS_sestra_naklady_na_kus = (prijem_naklady_na_ks + expirace_naklady_na_ks + inventarizace_naklady_na_kus).toFixed(2)
     skladovani_COS_sestra_naklady = (prijem_naklady + expirace_naklady + inventarizace_naklady).toFixed(2)
 
-    // console.log('mesicne_sestra', mesicne_sestra);
-    // console.log('results table', skladovani_COS_sestra_naklady_na_kus, skladovani_COS_sestra_naklady);
-
     return (
   	  <table className="table-results">
         <thead>
@@ -179,16 +222,20 @@ class Table_Results extends Component {
           <tr>
             <td>Objednávání - pracovník CS</td>
             <td>CPT set</td>
-            <td>{this.state.objednavani.toFixed(2)} kč</td>
+            {/* <td>{this.state.objednavani.toFixed(2)} kč</td> */}
+            <td>{objednavani_naklady_na_ks} kč</td>
             <td>Komponenty</td>
-            <td>{this.state.objednavani_komponenty.toFixed(2)}</td>
+            {/* <td>{this.state.objednavani_komponenty.toFixed(2)}</td> */}
+            <td>{objednavani_naklady}</td>
           </tr>
           <tr>
             <td>Skladování centrální sklad - pracovník CS</td>
             <td>CPT set</td>
             <td>{this.state.skladovani_centralni_sklad.toFixed(2)} kč</td>
+            {/* <td>{skladovani_naklady_na_ks} kč</td> */}
             <td>Komponenty</td>
             <td>{this.state.skladovani_centralni_sklad_komponenty.toFixed(2)}</td>
+            {/* <td>{skladovani_naklady}</td> */}
           </tr>
           <tr>
             <td>Skladování COS - sestra</td>
