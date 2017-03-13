@@ -42,10 +42,14 @@ class Table_1 extends Component {
 
     return (
   	  <table className="table-1">
+        {/* <colgroup>
+          <col style={{width: 30 + '%'}}></col>
+          <col style={{width: 50 + '%'}}></col>
+        </colgroup> */}
         <thead>
           <tr>
-            <th>Osobní náklady</th>
-            <th>CZK/měsíc</th>
+            <th className="text-left" style={{width: 70 + '%'}}>Osobní náklady</th>
+            <th className="text-right" style={{width: 30 + '%'}}>CZK/měsíc</th>
           </tr>
         </thead>
         <tbody>

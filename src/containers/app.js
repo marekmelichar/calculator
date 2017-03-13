@@ -14,14 +14,22 @@ class App extends Component {
   render() {
     return (
       <div>
-        <section className="inputs-wrap">
-          <h1>VSTUPNÍ ÚDAJE</h1>
-          <Table_1 />
-          <Table_2 />
-          <Table_3 />
+        <section className="row">
+          <div className="vstupni_udaje wrap column">
+            <h1>VSTUPNÍ ÚDAJE</h1>
+            <h2>VSTUPNÍ ÚDAJE</h2>
+            <Table_1 />
+            <Table_2 />
+            <Table_3 />
+          </div>
+            <Table_Results />
         </section>
-        <Table_4 />
-        <Table_Results />
+        <section className="row margin-top-2">
+          <div className="komponenty wrap column size_50">
+            <h1>KOMPONENTY</h1>
+            <Table_4 />
+          </div>
+        </section>
       </div>
     );
   }

@@ -258,85 +258,84 @@ class Table_Results extends Component {
     let vystup_celkove_naklady_za_rok_Komponenty = ((parseFloat(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + parseFloat(suma_komponenty)) * parseFloat(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2)
 
     return (
-  	  <table className="table-results">
-        <thead>
-          <tr>
-            <th>Srovnání nákladů na CPT sety a komponenty</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Objednávání - pracovník CS</td>
-            <td>CPT set</td>
-            {/* <td>{this.state.objednavani.toFixed(2)} kč</td> */}
-            <td>{objednavani_naklady_na_ks} kč</td>
-            <td>Komponenty</td>
-            {/* <td>{this.state.objednavani_komponenty.toFixed(2)}</td> */}
-            <td>{objednavani_naklady}</td>
-          </tr>
-          <tr>
-            <td>Skladování centrální sklad - pracovník CS</td>
-            <td>CPT set</td>
-            {/* <td>{this.state.skladovani_centralni_sklad.toFixed(2)} kč</td> */}
-            <td>{skladovani_inventarizace_celkove_naklady_na_ks} kč</td>
-            <td>Komponenty</td>
-            {/* <td>{this.state.skladovani_centralni_sklad_komponenty.toFixed(2)}</td> */}
-            <td>{skladovani_inventarizace_celkove_naklady}</td>
-          </tr>
-          <tr>
-            <td>Skladování COS - sestra</td>
-            <td>CPT set</td>
-            {/* <td>{this.state.skladovani_COS.toFixed(2)} kč</td> */}
-            <td>{skladovani_COS_sestra_naklady_na_kus} kč</td>
-            <td>Komponenty</td>
-            {/* <td>{this.state.skladovani_COS_komponenty}</td> */}
-            <td>{skladovani_COS_sestra_naklady}</td>
-          </tr>
-          <tr>
-            <td>Vychystávání - sestra CS</td>
-            <td>CPT set</td>
-            {/* <td>{this.state.vychystavani.toFixed(2)} kč</td> */}
-            <td>{vychystavani_evidence_celkove_naklady_na_ks} kč</td>
-            <td>Komponenty</td>
-            {/* <td>{this.state.vychystavani_komponenty.toFixed(2)}</td> */}
-            <td>{vychystavani_evidence_celkove_naklady}</td>
-          </tr>
-          <tr>
-            <td>Celkem</td>
-            <td>1ks CPT set</td>
-            <td>{suma} kč</td>
-            <td>Komponenty</td>
-            <td>{suma_komponenty.toFixed(2)} kč</td>
-          </tr>
-        </tbody>
-        <tbody className="finalni-uspora">
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>úspora</td>
-          </tr>
-          <tr>
-            <td>Celkové náklady na použití u jedné operace</td>
-            <td>CPT set</td>
-            <td>{vystup_celkove_naklady_u_jedne_operace_CPT_set}</td>
-            <td>Komponenty</td>
-            <td>{vystup_celkove_naklady_u_jedne_operace_Komponenty}</td>
-            <td>{(vystup_celkove_naklady_u_jedne_operace_CPT_set - vystup_celkove_naklady_u_jedne_operace_Komponenty).toFixed(2)}</td>
-            {/* <td>{(parseFloat(parseFloat(this.props.cena_za_komplet_set) + parseFloat(suma)) - parseFloat(this.props.celkova_cena_za_komponenty_v_setu_SUMA + suma_komponenty).toFixed(2)).toFixed(2)}</td> */}
-          </tr>
-          <tr>
-            <td>Celkové náklady na použití za rok</td>
-            <td>1ks CPT set</td>
-            <td>{vystup_celkove_naklady_za_rok_1_CPT_set}</td>
-            <td>Komponenty</td>
-            <td>{vystup_celkove_naklady_za_rok_Komponenty}</td>
-            <td>{(vystup_celkove_naklady_za_rok_1_CPT_set - vystup_celkove_naklady_za_rok_Komponenty).toFixed(2)}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div>
+        <div className="vystup wrap column">
+          <h1>VÝSTUP</h1>
+          <h2>VÝSTUP</h2>
+      	  <table className="table-results">
+            <tbody>
+              <tr>
+                <td>Objednávání - pracovník CS</td>
+                <td>CPT set</td>
+                <td>{objednavani_naklady_na_ks} kč</td>
+                <td>Komponenty</td>
+                <td>{objednavani_naklady}</td>
+              </tr>
+              <tr>
+                <td>Skladování centrální sklad - pracovník CS</td>
+                <td>CPT set</td>
+                <td>{skladovani_inventarizace_celkove_naklady_na_ks} kč</td>
+                <td>Komponenty</td>
+                <td>{skladovani_inventarizace_celkove_naklady}</td>
+              </tr>
+              <tr>
+                <td>Skladování COS - sestra</td>
+                <td>CPT set</td>
+                <td>{skladovani_COS_sestra_naklady_na_kus} kč</td>
+                <td>Komponenty</td>
+                <td>{skladovani_COS_sestra_naklady}</td>
+              </tr>
+              <tr>
+                <td>Vychystávání - sestra CS</td>
+                <td>CPT set</td>
+                <td>{vychystavani_evidence_celkove_naklady_na_ks} kč</td>
+                <td>Komponenty</td>
+                <td>{vychystavani_evidence_celkove_naklady}</td>
+              </tr>
+              <tr>
+                <td>Celkem</td>
+                <td>1ks CPT set</td>
+                <td>{suma} kč</td>
+                <td>Komponenty</td>
+                <td>{suma_komponenty.toFixed(2)} kč</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div className="rozdil_uspora wrap column">
+          <h1>ROZDÍL/ÚSPORA</h1>
+          <table>
+            <tbody className="finalni-uspora">
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>rozdíl (úspora)</td>
+              </tr>
+              <tr>
+                <td>Celkové náklady na použití u jedné operace</td>
+                <td>CPT set</td>
+                <td>{vystup_celkove_naklady_u_jedne_operace_CPT_set}</td>
+                <td>Komponenty</td>
+                <td>{vystup_celkove_naklady_u_jedne_operace_Komponenty}</td>
+                <td>{(vystup_celkove_naklady_u_jedne_operace_CPT_set - vystup_celkove_naklady_u_jedne_operace_Komponenty).toFixed(2)}</td>
+                {/* <td>{(parseFloat(parseFloat(this.props.cena_za_komplet_set) + parseFloat(suma)) - parseFloat(this.props.celkova_cena_za_komponenty_v_setu_SUMA + suma_komponenty).toFixed(2)).toFixed(2)}</td> */}
+              </tr>
+              <tr>
+                <td>Celkové náklady na použití za rok</td>
+                <td>1ks CPT set</td>
+                <td>{vystup_celkove_naklady_za_rok_1_CPT_set}</td>
+                <td>Komponenty</td>
+                <td>{vystup_celkove_naklady_za_rok_Komponenty}</td>
+                <td>{(vystup_celkove_naklady_za_rok_1_CPT_set - vystup_celkove_naklady_za_rok_Komponenty).toFixed(2)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     );
     // console.log();
   }
