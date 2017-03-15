@@ -76,8 +76,8 @@ class Table_2 extends Component {
   	  <table className="table-2">
         <thead>
           <tr>
-            <th style={{width: 70 + '%'}}>CPT set</th>
-            <th style={{width: 30 + '%'}}></th>
+            <th className="text-left" style={{width: 70 + '%'}}>CPT set</th>
+            <th className="text-right" style={{width: 30 + '%'}}></th>
           </tr>
         </thead>
         <tbody>

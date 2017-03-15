@@ -25,7 +25,7 @@ class App extends Component {
             <Table_Results />
         </section>
         <section className="row margin-top-2">
-          <div className="komponenty wrap column size_50">
+          <div className="komponenty wrap column">
             <h1>KOMPONENTY</h1>
             <Table_4 />
           </div>

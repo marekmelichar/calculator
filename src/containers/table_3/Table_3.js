@@ -42,8 +42,8 @@ class Table_3 extends Component {
   	  <table className="table-3">
         <thead>
           <tr>
-            <th style={{width: 70 + '%'}}>Současné používání CPS setů na oddělení</th>
-            <th style={{width: 30 + '%'}}></th>
+            <th className="text-left" style={{width: 70 + '%'}}>Současné používání CPS setů na oddělení</th>
+            <th className="text-right" style={{width: 30 + '%'}}></th>
           </tr>
         </thead>
         <tbody>

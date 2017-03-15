@@ -1,10 +1,15 @@
 body {
   margin: 25px;
-  font-family: arial, sans-serif;
+  /*font-family: arial, sans-serif;*/
 }
 
 input {
   text-align: right;
+}
+
+table {
+  width: 100%;
+  font-size: 10px;
 }
 
 .products-main-table {
@@ -25,11 +30,11 @@ input {
   margin-top: 3em;
 }*/
 
-.finalni-uspora:before {
+/*.finalni-uspora:before {
   content: '';
   display: block;
   height: 50px;
-}
+}*/
 
 .wrap {
   padding: 15px;
@@ -58,30 +63,26 @@ input {
 }
 
 .vstupni_udaje {
-  width: 40%;
+  width: 36%;
 }
 
 .vstupni_udaje h2,
-.vystup h2 {
+.vystup h2,
+.komponenty h2 {
   background: #5caec9;
   color: #fff;
   text-transform: uppercase;
   padding: 5px 10px;
   width: 100%;
   margin-bottom: 10px;
-  font-size: 12px;
+  font-size: 11px;
   border: 2px solid;
 }
 
 .vystup,
 .rozdil_uspora {
   margin-left: 2%;
-  width: 58%;
-}
-
-table {
-  width: 100%;
-  font-size: 12px;
+  width: 62%;
 }
 
 table thead tr:first-child {
@@ -98,9 +99,17 @@ table thead tr:first-child th {
   border: 2px solid #fff;
 }
 
+/*table thead tr:nth-child(2n+1) th {
+  background: red;
+}*/
+
 table tbody tr td {
   border-bottom: 1px solid #000;
-  padding: 15px 0;
+  padding: 10px 0;
+}
+
+.vystup tbody tr td:nth-child(1n+2) {
+  padding-left: 11px;
 }
 
 table tbody tr td:first-child {
@@ -136,10 +145,123 @@ table input {
   text-transform: uppercase;
 }
 
-.vystup table tbody tr td:not(:first-child) {
+
+/*.vystup table tbody tr td:not(:first-child) {
   text-align: center;
-}
+}*/
 
 .rozdil_uspora {
   margin-top: 3em;
+  padding-bottom: 88px;
+}
+
+.rozdil_uspora table tbody tr:nth-child(1) td {
+  background: #fff;
+  color: #000;
+  border-bottom: none;
+}
+
+.rozdil_uspora table tbody tr:nth-child(2) td,
+.rozdil_uspora table tbody tr:nth-child(3) td {
+  border: none;
+  background: #5caec9;
+  color: #fff;
+  border-bottom: 15px solid #fff;
+}
+
+/*.rozdil_uspora table tbody tr td {
+  border: none;
+  background: #5caec9;
+  color: #fff;
+}*/
+
+/*.komponenty table thead tr:first-child th {
+  border: 2px solid lightblue;
+}*/
+
+.komponenty table input {
+  width: 80%;
+}
+
+.komponenty {
+  width: 60%;
+}
+
+.komponenty table thead tr:first-child th {
+  background: #fff;
+}
+
+.komponenty table thead tr th {
+  text-align: left;
+  padding: 0px;
+}
+
+.komponenty table thead tr th:first-child {
+  padding-left: 10px;
+}
+
+.komponenty table tbody tr td:last-child {
+  text-align: right;
+}
+
+.komponenty table tbody tr td {
+  text-align: left;
+  border-bottom: none;
+}
+
+.komponenty table input {
+  border: 1px solid #000;
+}
+
+/*.komponenty table tbody tr td:last-child {
+  padding-bottom: 0;
+  padding-top: 0;
+}*/
+
+.plus-icon,
+.minus-icon {
+  padding: 0 5px;
+  border: 1px solid #5caec9;
+  color: #5caec9;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.minus-icon {
+  padding: 0px 7px 2px 7px;
+}
+
+.komponenty table.products-main-table tbody tr td {
+  border-bottom: 1px solid #000;
+}
+
+
+@media screen and (max-width: 1080px) {
+  .vystup {
+    margin-left: 0;
+    /*margin-top: 50px;*/
+    margin-top: 0;
+  }
+
+  .rozdil_uspora {
+    margin-left: 0;
+    margin-top: 50px;
+  }
+
+  .komponenty {
+    margin-top: 25px;
+  }
+
+  .vystup, .rozdil_uspora {
+    margin-left: 2%;
+    width: 52%;
+  }
+
+  .vstupni_udaje {
+    width: 46%;
+  }
+
+  .rozdil_uspora {
+    padding-bottom: 26px;
+  }
 }

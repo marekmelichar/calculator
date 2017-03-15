@@ -76,16 +76,21 @@ class Table_4 extends Component {
 
       items.forEach(function(item) {
         // console.log(item.komponenta, item.pocet_ks, item.cena_ks, item.cena_celkem);
-        body.push([ item.komponenta, item.pocet_ks, item.cena_ks, item.cena_celkem ])
+        body.push([ item.komponenta, item.pocet_ks, item.cena_ks, item.cena_celkem, "" ])
       })
     }
 
     return (
       <div>
+        <h2>CPT set - jednotlivé komponenty</h2>
     	  <table className="table-4">
           <thead>
             <tr>
-              <th>CPT set - jednotlivé komponenty</th>
+              <th className="text-left" style={{width: 35 + '%'}}></th>
+              <th style={{width: 20 + '%'}}></th>
+              <th style={{width: 20 + '%'}}></th>
+              <th style={{width: 20 + '%'}}></th>
+              <th style={{width: 5 + '%'}}></th>
             </tr>
             <tr>
               <th>Komponenta</th>
@@ -99,11 +104,12 @@ class Table_4 extends Component {
               <td><input type="text" value={this.state.komponenta} onChange={this.handleKomponenta} /></td>
               <td><input type="text" value={this.state.pocet_ks} onChange={this.handlePocetKs} /></td>
               <td><input type="text" value={this.state.cena_ks} onChange={this.handleCenaKs} /> Kč</td>
-              <td><input type="text" value={this.state.cena_celkem} onChange={this.handleCenaCelkem} /> Kč <span onClick={this.addItem}>Přidat</span></td>
+              <td><input type="text" value={this.state.cena_celkem} onChange={this.handleCenaCelkem} /> Kč</td>
+              <td><span className="plus-icon" onClick={this.addItem}>+</span></td>
             </tr>
           </tbody>
         </table>
-        <Table widths={[25,25,25,25]} head={[]} body={body}  />
+        <Table classNamee={"products-main-table"} widths={[35,20,20,20,5]} head={[]} body={body}  />
       </div>
     );
   }

@@ -306,14 +306,14 @@ class Table_Results extends Component {
         <div className="rozdil_uspora wrap column">
           <h1>ROZDÍL/ÚSPORA</h1>
           <table>
-            <tbody className="finalni-uspora">
+            <tbody>
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>rozdíl (úspora)</td>
+                <td style={{width: 40 + '%'}}></td>
+                <td style={{width: 10 + '%'}}></td>
+                <td style={{width: 10 + '%'}}></td>
+                <td style={{width: 10 + '%'}}></td>
+                <td style={{width: 10 + '%'}}></td>
+                <td style={{width: 10 + '%'}}>rozdíl (úspora)</td>
               </tr>
               <tr>
                 <td>Celkové náklady na použití u jedné operace</td>
@@ -322,7 +322,6 @@ class Table_Results extends Component {
                 <td>Komponenty</td>
                 <td>{vystup_celkove_naklady_u_jedne_operace_Komponenty}</td>
                 <td>{(vystup_celkove_naklady_u_jedne_operace_CPT_set - vystup_celkove_naklady_u_jedne_operace_Komponenty).toFixed(2)}</td>
-                {/* <td>{(parseFloat(parseFloat(this.props.cena_za_komplet_set) + parseFloat(suma)) - parseFloat(this.props.celkova_cena_za_komponenty_v_setu_SUMA + suma_komponenty).toFixed(2)).toFixed(2)}</td> */}
               </tr>
               <tr>
                 <td>Celkové náklady na použití za rok</td>

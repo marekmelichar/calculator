@@ -38,14 +38,14 @@ class Table extends Component {
                       <tr key={`.${i}`}>
                         {line.map(function(item, j){
                           // if it is last item then use a className of status_color
-                          return <td key={`.${i}.${j}`}>{item} <span id={i} onClick={_this.removeItem}>{j === tableBody[0].length - 1 ? "Odstranit" : ""}</span></td>
+                          return <td key={`.${i}.${j}`}>{item} <span className={j === tableBody[0].length - 1 ? "minus-icon" : ""} id={i} onClick={_this.removeItem}>{j === tableBody[0].length - 1 ? "-" : ""}</span></td>
                         })}
                       </tr>);
                 });
 
 
         return (
-            <table className="products-main-table">
+            <table className={this.props.classNamee}>
                 <colgroup>{colgroup}</colgroup>
                 <thead>{thead}</thead>
                 <tbody>{tbody}</tbody>

@@ -73,11 +73,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 body {
   -webkit-tap-highlight-color: transparent;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'open_sansregular', sans-serif;
   font-weight: normal;
   font-style: normal;
   font-size: 1em;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   line-height: 1.5;
 }
 
@@ -405,7 +405,8 @@ header nav li a {
 
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 960px) {
+/*@media screen and (max-width: 767px) {*/
 
 .column, [class*="column"]+[class*="column"]:last-child, [class*="column"]+[class*="column"].end:last-child, [class*="column"]+[class*="column"].end {
   float: none;
