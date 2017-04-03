@@ -1,0 +1,80 @@
+@media print {
+
+  .column, [class*="column"]+[class*="column"]:last-child, [class*="column"]+[class*="column"].end:last-child, [class*="column"]+[class*="column"].end {
+    float: none;
+  }
+
+  .column {
+    width: auto !important;
+  }
+
+  .row .row.collapse > .column.size_75 {
+    width: 75% !important;
+  }
+
+  .row .row.collapse > .column.size_25 {
+    width: 25% !important;
+  }
+
+  .row .row.collapse > .column {
+    float: left;
+  }
+
+  .row .row.collapse > .column:last-child {
+    float: right;
+  }
+
+  .vstupni_udaje {
+    margin-top: 30px;
+  }
+
+  .vstupni_udaje.wrap h1 {
+    margin-top: -60px;
+    margin-bottom: 25px;
+    margin-left: 0;
+  }
+
+  .vystup {
+    margin-top: 50px;
+    margin-left: 0;
+  }
+
+  .vystup.wrap h1 {
+    width: 100px;
+    margin-top: -60px;
+    margin-bottom: 25px;
+    margin-left: 0;
+  }
+
+  .rozdil_uspora {
+    margin-top: 50px;
+    margin-left: 0;
+    padding-bottom: 15px;
+  }
+
+  .rozdil_uspora h1 {
+    width: 175px;
+    margin-top: -60px;
+    margin-bottom: 25px;
+    margin-left: 0;
+  }
+
+  .komponenty {
+    margin-top: 20px;
+    margin-left: 0;
+  }
+
+  .komponenty.wrap h1 {
+    /*width: 175px;*/
+    margin-top: -60px;
+    margin-bottom: 25px;
+    margin-left: 0;
+  }
+
+
+
+  .vystup {
+    page-break-after: always;
+  }
+
+}
