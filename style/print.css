@@ -80,7 +80,6 @@
   .wrap {
     padding: 5px;
     border: 1px solid #000;
-    /* because page-break-after: always; will not work otherwise */
     float: none;
   }
 
@@ -89,8 +88,6 @@
   }
 
   .vstupni_udaje h2 {
-    /*margin-bottom: 0;*/
-    /*display: none;*/
     visibility: hidden;
   }
 

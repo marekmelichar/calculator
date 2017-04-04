@@ -90,8 +90,8 @@ class Table_2 extends Component {
           </tr>
           <tr>
             <td>Počet komponent v setu</td>
-            <td><input type="text" value={this.state.komponenty} onChange={this.handleKomponenty} /></td>
-            {/* <td><input type="text" ref="Komponenty" value={this.state.komponenty ? this.state.komponenty : pocet_komponent_v_setu_SUMA} onChange={this.handleKomponenty} /></td> */}
+            {/* <td><input type="text" value={this.state.komponenty} onChange={this.handleKomponenty} /></td> */}
+            <td><input type="text" ref="Komponenty" value={this.state.komponenty ? this.state.komponenty : pocet_komponent_v_setu_SUMA} onChange={this.handleKomponenty} /></td>
           </tr>
           <tr>
             <td>Cena za set</td>
@@ -99,8 +99,8 @@ class Table_2 extends Component {
           </tr>
           <tr>
             <td>Celková cena za komponenty v setu</td>
-            <td><input type="text" value={this.state.celkova_cena} onChange={this.handleCelkovaCena} /> Kč</td>
-            {/* <td><input type="text" value={ceny_komponent_v_setu_SUMA} /> Kč</td> */}
+            {/* <td><input type="text" value={this.state.celkova_cena} onChange={this.handleCelkovaCena} /> Kč</td> */}
+            <td><input type="text" value={ceny_komponent_v_setu_SUMA} /> Kč</td>
           </tr>
         </tbody>
       </table>
