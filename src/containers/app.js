@@ -14,6 +14,13 @@ class App extends Component {
   render() {
     return (
       <div>
+        <header className="row">
+          <div className="nadpis">NADPIS <strong>KALKULAČKA</strong> SEMI CPT</div>
+          {/* <div className="logo"></div> */}
+          <div className="logo">
+            <img src="/images/logo.png" />
+          </div>
+        </header>
         <section className="row">
           <div className="vstupni_udaje wrap column">
             <h1>VSTUPNÍ ÚDAJE</h1>

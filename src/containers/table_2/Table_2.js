@@ -15,12 +15,14 @@ class Table_2 extends Component {
     this.state = {
       pouziti: 0,
       komponenty: 0,
-      cena_za_set: 0
+      cena_za_set: 0,
+      celkova_cena: 0
     };
 
     this.handlePouziti = this.handlePouziti.bind(this);
     this.handleKomponenty = this.handleKomponenty.bind(this);
     this.handleCenaZaSet = this.handleCenaZaSet.bind(this);
+    this.handleCelkovaCena = this.handleCelkovaCena.bind(this);
   }
 
   // componentDidMount() {
@@ -38,7 +40,8 @@ class Table_2 extends Component {
   handleKomponenty(event) {
     let value = event.target.value;
     this.setState({komponenty: value});
-    this.props.pocet_komponent_v_setu_SUMA(value ? value : this.state.komponenty);
+    // this.props.pocet_komponent_v_setu_SUMA(value ? value : this.state.komponenty);
+    this.props.pocet_komponent_v_setu_SUMA(value);
   }
 
   handleCenaZaSet(event) {
@@ -47,9 +50,9 @@ class Table_2 extends Component {
     this.props.cena_za_set(value ? value : this.state.cena_za_set);
   }
 
-  // handleCelkovaCena(event) {
-  //   this.setState({celkova_cena: event.target.value});
-  // }
+  handleCelkovaCena(event) {
+    this.setState({celkova_cena: event.target.value});
+  }
 
   render() {
 
@@ -73,7 +76,7 @@ class Table_2 extends Component {
     this.props.celkova_cena_za_komponenty_v_setu(ceny_komponent_v_setu_SUMA);
 
     return (
-  	  <table className="table-2">
+  	  <table className="table-2 cpt-set">
         <thead>
           <tr>
             <th className="text-left" style={{width: 70 + '%'}}>CPT set</th>
@@ -87,8 +90,8 @@ class Table_2 extends Component {
           </tr>
           <tr>
             <td>Počet komponent v setu</td>
-            {/* <td><input type="text" value={this.state.komponenty} onChange={this.handleKomponenty} /></td> */}
-            <td><input type="text" ref="Komponenty" value={this.state.komponenty ? this.state.komponenty : pocet_komponent_v_setu_SUMA} onChange={this.handleKomponenty} /></td>
+            <td><input type="text" value={this.state.komponenty} onChange={this.handleKomponenty} /></td>
+            {/* <td><input type="text" ref="Komponenty" value={this.state.komponenty ? this.state.komponenty : pocet_komponent_v_setu_SUMA} onChange={this.handleKomponenty} /></td> */}
           </tr>
           <tr>
             <td>Cena za set</td>
@@ -96,8 +99,8 @@ class Table_2 extends Component {
           </tr>
           <tr>
             <td>Celková cena za komponenty v setu</td>
-            {/* <td><input type="text" value={this.state.celkova_cena} onChange={this.handleCelkovaCena} /> Kč</td> */}
-            <td><input type="text" value={ceny_komponent_v_setu_SUMA} /> Kč</td>
+            <td><input type="text" value={this.state.celkova_cena} onChange={this.handleCelkovaCena} /> Kč</td>
+            {/* <td><input type="text" value={ceny_komponent_v_setu_SUMA} /> Kč</td> */}
           </tr>
         </tbody>
       </table>

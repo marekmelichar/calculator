@@ -260,8 +260,8 @@ class Table_Results extends Component {
     return (
       <div>
         <div className="vystup wrap column">
-          <h1>VÝSTUP</h1>
-          <h2>VÝSTUP</h2>
+          <h1>NÁKLADY NA MANIPULACI</h1>
+          <h2>NÁKLADY NA MANIPULACI</h2>
       	  <table className="table-results">
             <tbody>
               <tr>
@@ -304,16 +304,22 @@ class Table_Results extends Component {
         </div>
 
         <div className="rozdil_uspora wrap column">
-          <h1>ROZDÍL/ÚSPORA</h1>
-          <table>
+          <h1>VÝSLEDNÝ ROZDÍL/ÚSPORA</h1>
+          <table className="rozdil_table">
             <tbody>
               <tr>
-                <td style={{width: 40 + '%'}}></td>
+                {/* <td style={{width: 40 + '%'}}></td>
                 <td style={{width: 10 + '%'}}></td>
                 <td style={{width: 10 + '%'}}></td>
                 <td style={{width: 10 + '%'}}></td>
                 <td style={{width: 10 + '%'}}></td>
-                <td style={{width: 10 + '%'}}>rozdíl (úspora)</td>
+                <td style={{width: 10 + '%'}}>rozdíl (úspora)</td> */}
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>rozdíl (úspora)</td>
               </tr>
               <tr>
                 <td>Celkové náklady na použití u jedné operace</td>

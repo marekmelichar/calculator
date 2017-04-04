@@ -39,7 +39,7 @@ class Table_3 extends Component {
     // console.log(this.state);
 
     return (
-  	  <table className="table-3">
+  	  <table className="table-3 soucasne-pouzivani-CPT-setu">
         <thead>
           <tr>
             <th className="text-left" style={{width: 70 + '%'}}>Současné používání CPS setů na oddělení</th>
