@@ -2,6 +2,7 @@
 
   body {
     margin: 5px;
+    color: #000;
   }
 
   .column, [class*="column"]+[class*="column"]:last-child, [class*="column"]+[class*="column"].end:last-child, [class*="column"]+[class*="column"].end {
@@ -28,49 +29,52 @@
     float: right;
   }
 
-  .vstupni_udaje {
-    margin-top: 30px;
+  .logo {
+    margin-top: -25px;
+    display: block;
+    height: 0;
+    /*margin: 0;*/
+    float: none;
+    text-align: right;
   }
 
-  .vstupni_udaje.wrap h1 {
-    margin-top: -60px;
-    margin-bottom: 25px;
+  .nadpis {
+    float: left;
+    padding-top: 10px;
+    font-size: 1.5em;
+  }
+
+  .vstupni_udaje.wrap,
+  .vystup.wrap,
+  .rozdil_uspora.wrap {
+    margin-top: 10px;
     margin-left: 0;
   }
 
-  .vystup {
-    margin-top: 50px;
-    margin-left: 0;
+  .vstupni_udaje.wrap {
+    margin-top: 10px;
+  }
+
+  .vstupni_udaje.wrap h1,
+  .vystup.wrap h1,
+  .rozdil_uspora.wrap h1,
+  .komponenty.wrap h1 {
+    width: 100%;
+    margin-top: 0;
+    padding-left: 30px;
+    text-align: left;
   }
 
   .vystup.wrap h1 {
-    margin-top: -60px;
-    margin-bottom: 25px;
-    margin-left: 0;
-  }
-
-  .rozdil_uspora {
-    margin-top: 50px;
-    margin-left: 0;
-    padding-bottom: 15px;
-  }
-
-  .rozdil_uspora h1 {
-    margin-top: -60px;
-    margin-bottom: 25px;
-    margin-left: 0;
-  }
-
-  .komponenty {
-    margin-top: 20px;
-    margin-left: 0;
+    padding-left: 25px;
   }
 
   .komponenty.wrap h1 {
-    /*width: 175px;*/
-    margin-top: -60px;
-    margin-bottom: 25px;
-    margin-left: 0;
+    padding-left: 40px;
+  }
+
+  .rozdil_uspora.wrap {
+    page-break-after: always;
   }
 
   table tbody tr td {
@@ -80,11 +84,6 @@
   .wrap {
     padding: 5px;
     border: 1px solid #000;
-    float: none;
-  }
-
-  .rozdil_uspora {
-    page-break-after: always;
   }
 
   .vstupni_udaje h2 {
@@ -105,19 +104,14 @@
   }
 
   .vstupni_udaje.wrap h1 {
-    margin-bottom: 15px;
     margin-left: -20px;
   }
 
   .vystup.wrap h1 {
-    margin-top: -50px;
-    margin-bottom: 15px;
     margin-left: -14px;
   }
 
   .rozdil_uspora h1 {
-    margin-top: -50px;
-    margin-bottom: 15px;
     margin-left: -14px;
   }
 
@@ -141,6 +135,7 @@
 
   header.row {
     margin: 0 0 30px 0;
+    color: #000;
   }
 
   .rozdil_uspora table tbody tr:nth-child(2) td,
@@ -155,20 +150,26 @@
 
   .vstupni_udaje.wrap h1, .vystup.wrap h1, .komponenty.wrap h1, .rozdil_uspora h1 {
     background-color: transparent;
+    color: #000;
   }
 
-  .logo {
-    display: block;
-    height: 0;
-    margin: 0;
-    float: none;
-    text-align: right;
+  .vstupni_udaje h2, .vystup h2, .komponenty h2 {
+    color: #000;
   }
 
-  .nadpis {
-    float: left;
-    padding-top: 10px;
-    font-size: 1.5em;
+  table thead tr:first-child th {
+    color: #000;
+  }
+
+  .vystup table tbody tr:nth-child(5) td {
+    background: transparent;
+    color: #000;
+    border: none;
+  }
+
+  .rozdil_uspora table tbody tr:nth-child(2) td, .rozdil_uspora table tbody tr:nth-child(3) td {
+    background: transparent;
+    color: #000;
   }
 
 }
