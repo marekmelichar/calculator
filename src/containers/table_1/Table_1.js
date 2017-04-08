@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import NumberFormat from 'react-number-format';
+
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
@@ -38,7 +40,10 @@ class Table_1 extends Component {
   }
 
   render() {
-    // console.log(this.state);
+    // console.log(this.state.sestra);
+
+    // let plat_sestry_pred = this.state.sestra.toString()
+    // let plat_sestry = plat_sestry_pred.replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")
 
     return (
   	  <table className="table-1">
@@ -55,15 +60,20 @@ class Table_1 extends Component {
         <tbody>
           <tr>
             <td>Sestra COS</td>
-            <td><input type="text" value={this.state.sestra} onChange={this.handleSestra} /> Kč</td>
+            {/* <td>{plat_sestry}</td> .toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",") */}
+            {/* <td><input type="text" value={this.state.sestra} onChange={this.handleSestra} /> Kč</td> */}
+            <td><NumberFormat value={this.state.sestra.toString()} thousandSeparator={" "} /> Kč</td>
+
           </tr>
           <tr>
             <td>Pracovník centrálního skladu</td>
-            <td><input type="text" value={this.state.skladnik} onChange={this.handleSkladnik} /> Kč</td>
+            {/* <td><input type="text" value={this.state.skladnik} onChange={this.handleSkladnik} /> Kč</td> */}
+            <td><NumberFormat value={this.state.skladnik.toString()} thousandSeparator={" "} /> Kč</td>
           </tr>
           <tr>
             <td>Ekonomické oddělení - účetní</td>
-            <td><input type="text" value={this.state.ucetni} onChange={this.handleUcetni} /> Kč</td>
+            {/* <td><input type="text" value={this.state.ucetni} onChange={this.handleUcetni} /> Kč</td> */}
+            <td><NumberFormat value={this.state.ucetni.toString()} thousandSeparator={" "} /> Kč</td>
           </tr>
         </tbody>
       </table>

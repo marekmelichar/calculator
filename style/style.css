@@ -356,15 +356,20 @@ table input {
   table tbody tr td {
     padding: 6px;
   }
+
+  .vystup {
+    margin-top: 60px;
+    margin-left: 0;
+  }
 }
 
 
 
 @media screen and (max-width: 768px) {
 
-  .vystup {
+  /*.vystup {
     margin-top: 60px;
     margin-left: 0;
-  }
+  }*/
 
 }

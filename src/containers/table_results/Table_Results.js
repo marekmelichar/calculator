@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+// import NumberFormat from 'react-number-format';
+// import DynamicNumber from 'react-dynamic-number';
+
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
@@ -64,7 +67,34 @@ class Table_Results extends Component {
       vykon_oddeleni_za_rok_input: 1250,
       pomer_vyuziti_input: 40
     };
+
+    // this.numberWithCommas = this.numberWithCommas.bind(this);
   }
+
+  // numberWithCommas(x) {
+  //   console.log('x', x);
+  //   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // }
+
+  // numberWithCommas(x) {
+  //   console.log('x', x);
+  //   var parts = x.toString().split(".");
+  //   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  //   return parts.join(".");
+  // }
+
+  // componentDidUpdate() {
+  //     // number = number.toFixed(2) + '';
+  //     let number = suma_komponenty;
+  //     x = number.split('.');
+  //     x1 = x[0];
+  //     x2 = x.length > 1 ? '.' + x[1] : '';
+  //     var rgx = /(\d+)(\d{3})/;
+  //     while (rgx.test(x1)) {
+  //         x1 = x1.replace(rgx, '$1' + ',' + '$2');
+  //     }
+  //     return x1 + x2;
+  // }
 
   render() {
 
@@ -250,7 +280,8 @@ class Table_Results extends Component {
 
     let suma, suma_komponenty;
     suma = (parseFloat(objednavani_naklady_na_ks) + parseFloat(skladovani_inventarizace_celkove_naklady_na_ks) + parseFloat(skladovani_COS_sestra_naklady_na_kus) + parseFloat(vychystavani_evidence_celkove_naklady_na_ks)).toFixed(2)
-    suma_komponenty = parseFloat(objednavani_naklady) + parseFloat(skladovani_inventarizace_celkove_naklady) + parseFloat(skladovani_COS_sestra_naklady) + parseFloat(vychystavani_evidence_celkove_naklady)
+    // suma_komponenty = (parseFloat(objednavani_naklady) + parseFloat(skladovani_inventarizace_celkove_naklady) + parseFloat(skladovani_COS_sestra_naklady) + parseFloat(vychystavani_evidence_celkove_naklady)).toFixed(2).replace(".", ",")
+    suma_komponenty = (parseFloat(objednavani_naklady) + parseFloat(skladovani_inventarizace_celkove_naklady) + parseFloat(skladovani_COS_sestra_naklady) + parseFloat(vychystavani_evidence_celkove_naklady)).toFixed(2)
 
     let vystup_celkove_naklady_u_jedne_operace_CPT_set = parseFloat(this.props.cena_za_komplet_set) + parseFloat(suma)
     let vystup_celkove_naklady_u_jedne_operace_Komponenty = (parseFloat(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + parseFloat(suma_komponenty)).toFixed(2)
@@ -295,9 +326,18 @@ class Table_Results extends Component {
               <tr>
                 <td>Celkem</td>
                 <td>1ks CPT set</td>
-                <td>{suma} kč</td>
+                <td>{suma.replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} kč</td>
                 <td>Komponenty</td>
-                <td>{suma_komponenty.toFixed(2)} kč</td>
+                <td>{suma_komponenty.replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} kč</td>
+                {/* <td><NumberFormat value={suma_komponenty.toFixed(2)} thousandSeparator={true} displayType={'text'} format="#### #### #### ####" /></td> */}
+                {/* <td><NumberFormat value={suma_komponenty.toFixed(2)} displayType={'text'} /></td> */}
+                {/* <td>
+                  <DynamicNumber
+                    // value={suma_komponenty.toFixed(2)}
+                    separator={','}
+                    thousand={' '}
+                  >{suma_komponenty.toFixed(2)}</DynamicNumber>
+                </td> */}
               </tr>
             </tbody>
           </table>

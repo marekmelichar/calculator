@@ -172,4 +172,8 @@
     color: #000;
   }
 
+  .plus-icon, .minus-icon {
+    display: none;
+  }
+
 }

@@ -49,7 +49,7 @@ class Table_3 extends Component {
         <tbody>
           <tr>
             <td>Celkový počet výkonů na oddělení za rok</td>
-            <td><input type="text" value={this.state.vykony_na_oddeleni_za_rok} onChange={this.handle_vykony_na_oddeleni_za_rok} /> Kč</td>
+            <td><input type="text" value={this.state.vykony_na_oddeleni_za_rok} onChange={this.handle_vykony_na_oddeleni_za_rok} /></td>
           </tr>
           <tr>
             <td>Poměr použití CPT ke všem výkonům (%)</td>
