@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import NumberFormat from 'react-number-format';
+
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
@@ -19,7 +21,7 @@ class Table_4 extends Component {
     this.handleKomponenta = this.handleKomponenta.bind(this);
     this.handlePocetKs = this.handlePocetKs.bind(this);
     this.handleCenaKs = this.handleCenaKs.bind(this);
-    this.handleCenaCelkem = this.handleCenaCelkem.bind(this);
+    // this.handleCenaCelkem = this.handleCenaCelkem.bind(this);
     this.addItem = this.addItem.bind(this);
   }
 
@@ -28,22 +30,28 @@ class Table_4 extends Component {
   }
 
   handlePocetKs(event) {
+    let value = event.target.value.replace(/\s+/g, '')
+    console.log('pocet ks', value);
+
     this.setState({
-      pocet_ks: event.target.value,
-      cena_celkem: event.target.value * this.state.cena_ks
+      pocet_ks: value,
+      cena_celkem: value * this.state.cena_ks
     });
   }
 
   handleCenaKs(event) {
+    let value = event.target.value.replace(/\s+/g, '')
+    console.log('cena ks', value);
+
     this.setState({
-      cena_ks: event.target.value,
-      cena_celkem: this.state.pocet_ks * event.target.value
+      cena_ks: value,
+      cena_celkem: this.state.pocet_ks * value
     });
   }
 
-  handleCenaCelkem(event) {
-    this.setState({cena_celkem: event.target.value});
-  }
+  // handleCenaCelkem(event) {
+  //   this.setState({cena_celkem: event.target.value});
+  // }
 
   addItem() {
     let komponenta = this.state.komponenta;
@@ -102,9 +110,18 @@ class Table_4 extends Component {
           <tbody>
             <tr>
               <td><input type="text" value={this.state.komponenta} onChange={this.handleKomponenta} /></td>
+              {/* <td><NumberFormat displayType={'input'} decimalSeparator={","} value={this.state.komponenta.toString()} thousandSeparator={" "} onChange={this.handleKomponenta} /></td> */}
               <td><input type="text" value={this.state.pocet_ks} onChange={this.handlePocetKs} /></td>
+              {/* <td><NumberFormat displayType={'input'} decimalSeparator={","} value={this.state.pocet_ks.toString()} thousandSeparator={" "} onChange={this.handlePocetKs} /></td> */}
               <td><input type="text" value={this.state.cena_ks} onChange={this.handleCenaKs} /> Kč</td>
-              <td><input type="text" value={this.state.cena_celkem} onChange={this.handleCenaCelkem} /> Kč</td>
+              {/* <td><NumberFormat displayType={'input'} decimalSeparator={","} value={this.state.cena_ks.toString()} thousandSeparator={" "} onChange={this.handleCenaKs} /> Kč</td> */}
+              {/* <td><input type="text" value={this.state.cena_celkem} onChange={this.handleCenaCelkem} /> Kč</td> */}
+              <td className="komponenty-celkova-cena-wrapper">
+                <div className="komponenty-celkova-cena">
+                  {this.state.cena_celkem} Kč
+                  {/* <NumberFormat displayType={'text'} decimalSeparator={","} value={this.state.cena_celkem.toString()} thousandSeparator={" "} onChange={false} /> Kč */}
+                </div>
+              </td>
               <td><span className="plus-icon" onClick={this.addItem}>+</span></td>
             </tr>
           </tbody>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import NumberFormat from 'react-number-format';
+
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
@@ -87,20 +89,29 @@ class Table_2 extends Component {
           <tr>
             <td>Průměrný počet použití za rok</td>
             <td><input type="text" value={this.state.pouziti} onChange={this.handlePouziti} /></td>
+            {/* <td><NumberFormat displayType={'input'} decimalSeparator={","} value={this.state.pouziti.toString()} thousandSeparator={" "} onChange={this.handlePouziti} /></td> */}
+
           </tr>
           <tr>
             <td>Počet komponent v setu</td>
-            {/* <td><input type="text" value={this.state.komponenty} onChange={this.handleKomponenty} /></td> */}
-            <td><input type="text" ref="Komponenty" value={this.state.komponenty ? this.state.komponenty : pocet_komponent_v_setu_SUMA} onChange={this.handleKomponenty} /></td>
+            {/* in case of rewriting the value only, use this line */}
+            <td><input type="text" value={this.state.komponenty} onChange={this.handleKomponenty} /></td>
+            {/* in case of not overwriting the value, default is SUM of all Komponenty */}
+            {/* <td><input type="text" ref="Komponenty" value={this.state.komponenty ? this.state.komponenty : pocet_komponent_v_setu_SUMA} onChange={this.handleKomponenty} /></td> */}
+            {/* <td><NumberFormat ref="Komponenty" displayType={'input'} decimalSeparator={","} value={this.state.komponenty.toString()} thousandSeparator={" "} onChange={this.handleKomponenty} /></td> */}
           </tr>
           <tr>
             <td>Cena za set</td>
             <td><input type="text" value={this.state.cena_za_set} onChange={this.handleCenaZaSet} /> Kč</td>
+            {/* <td><NumberFormat displayType={'input'} decimalSeparator={","} value={this.state.cena_za_set.toString()} thousandSeparator={" "} onChange={this.handleCenaZaSet} /> Kč</td> */}
           </tr>
           <tr>
             <td>Celková cena za komponenty v setu</td>
-            {/* <td><input type="text" value={this.state.celkova_cena} onChange={this.handleCelkovaCena} /> Kč</td> */}
-            <td><input type="text" value={ceny_komponent_v_setu_SUMA} /> Kč</td>
+            {/* in case of rewriting the value only, use this line */}
+            <td><input type="text" value={this.state.celkova_cena} onChange={this.handleCelkovaCena} /> Kč</td>
+            {/* in case of not overwriting the value, default is SUM of all Komponenty prices */}
+            {/* <td><input type="text" value={ceny_komponent_v_setu_SUMA} /> Kč</td> */}
+            {/* <td><NumberFormat displayType={'input'} decimalSeparator={","} value={this.state.celkova_cena.toString()} thousandSeparator={" "} onChange={this.handleCelkovaCena} /> Kč</td> */}
           </tr>
         </tbody>
       </table>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-// import NumberFormat from 'react-number-format';
-// import DynamicNumber from 'react-dynamic-number';
+import NumberFormat from 'react-number-format';
 
 import { connect } from 'react-redux';
 
@@ -299,6 +298,7 @@ class Table_Results extends Component {
                 <td>Objednávání - pracovník CS</td>
                 <td>CPT set</td>
                 <td>{objednavani_naklady_na_ks} kč</td>
+                {/* <td><NumberFormat displayType={'text'} decimalSeparator={","} value={objednavani_naklady_na_ks.toString()} thousandSeparator={" "} /> Kč</td> */}
                 <td>Komponenty</td>
                 <td>{objednavani_naklady}</td>
               </tr>
@@ -326,9 +326,9 @@ class Table_Results extends Component {
               <tr>
                 <td>Celkem</td>
                 <td>1ks CPT set</td>
-                <td>{suma.replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} kč</td>
+                <td>{suma.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} kč</td>
                 <td>Komponenty</td>
-                <td>{suma_komponenty.replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} kč</td>
+                <td>{suma_komponenty.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} kč</td>
                 {/* <td><NumberFormat value={suma_komponenty.toFixed(2)} thousandSeparator={true} displayType={'text'} format="#### #### #### ####" /></td> */}
                 {/* <td><NumberFormat value={suma_komponenty.toFixed(2)} displayType={'text'} /></td> */}
                 {/* <td>

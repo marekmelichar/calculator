@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import NumberFormat from 'react-number-format';
+
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
@@ -50,10 +52,12 @@ class Table_3 extends Component {
           <tr>
             <td>Celkový počet výkonů na oddělení za rok</td>
             <td><input type="text" value={this.state.vykony_na_oddeleni_za_rok} onChange={this.handle_vykony_na_oddeleni_za_rok} /></td>
+            {/* <td><NumberFormat displayType={'input'} decimalSeparator={","} value={this.state.vykony_na_oddeleni_za_rok.toString()} thousandSeparator={" "} onChange={this.handle_vykony_na_oddeleni_za_rok} /></td> */}
           </tr>
           <tr>
             <td>Poměr použití CPT ke všem výkonům (%)</td>
             <td><input type="text" value={this.state.pomer_pouziti} onChange={this.handle_pomer_pouziti} /> %</td>
+            {/* <td><NumberFormat displayType={'input'} decimalSeparator={","} value={this.state.pomer_pouziti.toString()} thousandSeparator={" "} onChange={this.handle_pomer_pouziti} /> %</td> */}
           </tr>
         </tbody>
       </table>
