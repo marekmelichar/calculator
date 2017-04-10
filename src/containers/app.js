@@ -32,6 +32,9 @@ class App extends Component {
             <Table_Results />
         </section>
         <section className="row margin-top-2">
+          <div className="hidden-logo-for-print">
+            <img src="/images/logo.png" />
+          </div>
           <div className="komponenty wrap column">
             <h1>KOMPONENTY</h1>
             <Table_4 />

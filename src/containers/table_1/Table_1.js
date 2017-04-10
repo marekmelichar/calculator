@@ -101,18 +101,23 @@ class Table_1 extends Component {
           <tr>
             <td>Sestra COS</td>
             {/* <td>{plat_sestry}</td> .toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",") */}
-            <td><input type="text" value={this.state.sestra.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} onChange={this.handleSestra} /> Kč</td>
+            {/* <td><input type="text" value={this.state.sestra.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} onChange={this.handleSestra} /> Kč</td> */}
+            {/* <td><input type="text" value={this.state.sestra.toString().replace(/\D/g, '').match(/.{1,5}|^$/g).join(' ')} onChange={this.handleSestra} /> Kč</td> */}
+            {/* <td><input type="text" value={this.state.sestra.toString().replace(/[^\dA-Z]/g, '').replace(/(.{3})/g, '$1 ').trim()} onChange={this.handleSestra} /> Kč</td> */}
+            <td><input type="text" value={this.state.sestra} onChange={this.handleSestra} /> Kč</td>
             {/* <td><NumberFormat value={this.state.sestra.toString()} thousandSeparator={" "} onChange={this.handleSestra} /> Kč</td> */}
 
           </tr>
           <tr>
             <td>Pracovník centrálního skladu</td>
-            <td><input type="text" value={this.state.skladnik.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} onChange={this.handleSkladnik} /> Kč</td>
+            {/* <td><input type="text" value={this.state.skladnik.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} onChange={this.handleSkladnik} /> Kč</td> */}
+            <td><input type="text" value={this.state.skladnik} onChange={this.handleSkladnik} /> Kč</td>
             {/* <td><NumberFormat value={this.state.skladnik.toString()} thousandSeparator={" "} onChange={this.handleSkladnik} /> Kč</td> */}
           </tr>
           <tr>
             <td>Ekonomické oddělení - účetní</td>
-            <td><input type="text" value={this.state.ucetni.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} onChange={this.handleUcetni} /> Kč</td>
+            {/* <td><input type="text" value={this.state.ucetni.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} onChange={this.handleUcetni} /> Kč</td> */}
+            <td><input type="text" value={this.state.ucetni} onChange={this.handleUcetni} /> Kč</td>
             {/* <td><NumberFormat value={this.state.ucetni.toString()} thousandSeparator={" "} onChange={this.handleUcetni} /> Kč</td> */}
           </tr>
         </tbody>

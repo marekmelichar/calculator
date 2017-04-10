@@ -31,7 +31,7 @@ class Table_4 extends Component {
 
   handlePocetKs(event) {
     let value = event.target.value.replace(/\s+/g, '')
-    console.log('pocet ks', value);
+    // console.log('pocet ks', value);
 
     this.setState({
       pocet_ks: value,
@@ -41,7 +41,7 @@ class Table_4 extends Component {
 
   handleCenaKs(event) {
     let value = event.target.value.replace(/\s+/g, '')
-    console.log('cena ks', value);
+    // console.log('cena ks', value);
 
     this.setState({
       cena_ks: value,
@@ -84,7 +84,7 @@ class Table_4 extends Component {
 
       items.forEach(function(item) {
         // console.log(item.komponenta, item.pocet_ks, item.cena_ks, item.cena_celkem);
-        body.push([ item.komponenta, item.pocet_ks, item.cena_ks, item.cena_celkem, "" ])
+        body.push([ item.komponenta, item.pocet_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ","), item.cena_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ","), item.cena_celkem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ","), "" ])
       })
     }
 
@@ -111,14 +111,14 @@ class Table_4 extends Component {
             <tr>
               <td><input type="text" value={this.state.komponenta} onChange={this.handleKomponenta} /></td>
               {/* <td><NumberFormat displayType={'input'} decimalSeparator={","} value={this.state.komponenta.toString()} thousandSeparator={" "} onChange={this.handleKomponenta} /></td> */}
-              <td><input type="text" value={this.state.pocet_ks} onChange={this.handlePocetKs} /></td>
+              <td><input type="text" value={this.state.pocet_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} onChange={this.handlePocetKs} /></td>
               {/* <td><NumberFormat displayType={'input'} decimalSeparator={","} value={this.state.pocet_ks.toString()} thousandSeparator={" "} onChange={this.handlePocetKs} /></td> */}
-              <td><input type="text" value={this.state.cena_ks} onChange={this.handleCenaKs} /> Kč</td>
+              <td><input type="text" value={this.state.cena_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} onChange={this.handleCenaKs} /> Kč</td>
               {/* <td><NumberFormat displayType={'input'} decimalSeparator={","} value={this.state.cena_ks.toString()} thousandSeparator={" "} onChange={this.handleCenaKs} /> Kč</td> */}
               {/* <td><input type="text" value={this.state.cena_celkem} onChange={this.handleCenaCelkem} /> Kč</td> */}
               <td className="komponenty-celkova-cena-wrapper">
                 <div className="komponenty-celkova-cena">
-                  {this.state.cena_celkem} Kč
+                  {this.state.cena_celkem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",") || 0} Kč
                   {/* <NumberFormat displayType={'text'} decimalSeparator={","} value={this.state.cena_celkem.toString()} thousandSeparator={" "} onChange={false} /> Kč */}
                 </div>
               </td>

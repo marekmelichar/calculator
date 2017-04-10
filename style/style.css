@@ -257,15 +257,14 @@ table input {
   border: 1px solid black;
   padding: 0 6px;
   text-align: right;
-  position: absolute;
-  /*top: 14px;
-  left: 0;
-  bottom: 10px;
-  right: 6px;*/
-  top: 18px;
+  /*position: absolute;*/
+  /*top: 18px;*/
+  position: relative;
+  top: -2px;
   left: 0;
   bottom: 14px;
   right: 10px;
+  margin-right: 10px;
 }
 
 /*table tbody tr td.komponenty-celkova-cena {
@@ -302,6 +301,17 @@ table input {
 .soucasne-pouzivani-CPT-setu tr {
   background: #e5f9ff;
 }
+
+
+.hidden-logo-for-print {
+  display: none;
+}
+
+
+
+
+
+
 
 
 @media screen and (max-width: 1080px) {
@@ -383,6 +393,10 @@ table input {
   .vystup {
     margin-top: 60px;
     margin-left: 0;
+  }
+
+  .komponenty-celkova-cena {
+    margin-right: 0;
   }
 }
 

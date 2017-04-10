@@ -297,31 +297,31 @@ class Table_Results extends Component {
               <tr>
                 <td>Objednávání - pracovník CS</td>
                 <td>CPT set</td>
-                <td>{objednavani_naklady_na_ks} kč</td>
+                <td>{objednavani_naklady_na_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} kč</td>
                 {/* <td><NumberFormat displayType={'text'} decimalSeparator={","} value={objednavani_naklady_na_ks.toString()} thousandSeparator={" "} /> Kč</td> */}
                 <td>Komponenty</td>
-                <td>{objednavani_naklady}</td>
+                <td>{objednavani_naklady.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
               </tr>
               <tr>
                 <td>Skladování centrální sklad - pracovník CS</td>
                 <td>CPT set</td>
-                <td>{skladovani_inventarizace_celkove_naklady_na_ks} kč</td>
+                <td>{skladovani_inventarizace_celkove_naklady_na_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} kč</td>
                 <td>Komponenty</td>
-                <td>{skladovani_inventarizace_celkove_naklady}</td>
+                <td>{skladovani_inventarizace_celkove_naklady.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
               </tr>
               <tr>
                 <td>Skladování COS - sestra</td>
                 <td>CPT set</td>
-                <td>{skladovani_COS_sestra_naklady_na_kus} kč</td>
+                <td>{skladovani_COS_sestra_naklady_na_kus.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} kč</td>
                 <td>Komponenty</td>
-                <td>{skladovani_COS_sestra_naklady}</td>
+                <td>{skladovani_COS_sestra_naklady.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
               </tr>
               <tr>
                 <td>Vychystávání - sestra CS</td>
                 <td>CPT set</td>
-                <td>{vychystavani_evidence_celkove_naklady_na_ks} kč</td>
+                <td>{vychystavani_evidence_celkove_naklady_na_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} kč</td>
                 <td>Komponenty</td>
-                <td>{vychystavani_evidence_celkove_naklady}</td>
+                <td>{vychystavani_evidence_celkove_naklady.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
               </tr>
               <tr>
                 <td>Celkem</td>
@@ -364,18 +364,19 @@ class Table_Results extends Component {
               <tr>
                 <td>Celkové náklady na použití u jedné operace</td>
                 <td>CPT set</td>
-                <td>{vystup_celkove_naklady_u_jedne_operace_CPT_set}</td>
+                <td>{vystup_celkove_naklady_u_jedne_operace_CPT_set.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
                 <td>Komponenty</td>
-                <td>{vystup_celkove_naklady_u_jedne_operace_Komponenty}</td>
-                <td>{(vystup_celkove_naklady_u_jedne_operace_CPT_set - vystup_celkove_naklady_u_jedne_operace_Komponenty).toFixed(2)}</td>
+                <td>{vystup_celkove_naklady_u_jedne_operace_Komponenty.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
+                <td>{(vystup_celkove_naklady_u_jedne_operace_CPT_set - vystup_celkove_naklady_u_jedne_operace_Komponenty).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
               </tr>
               <tr>
                 <td>Celkové náklady na použití za rok</td>
-                <td>1ks CPT set</td>
-                <td>{vystup_celkove_naklady_za_rok_1_CPT_set}</td>
+                {/* <td>1ks CPT set</td> */}
+                <td>CPT set</td>
+                <td>{vystup_celkove_naklady_za_rok_1_CPT_set.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
                 <td>Komponenty</td>
-                <td>{vystup_celkove_naklady_za_rok_Komponenty}</td>
-                <td>{(vystup_celkove_naklady_za_rok_1_CPT_set - vystup_celkove_naklady_za_rok_Komponenty).toFixed(2)}</td>
+                <td>{vystup_celkove_naklady_za_rok_Komponenty.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
+                <td>{(vystup_celkove_naklady_za_rok_1_CPT_set - vystup_celkove_naklady_za_rok_Komponenty).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
               </tr>
             </tbody>
           </table>
