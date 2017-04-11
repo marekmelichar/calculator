@@ -12,6 +12,7 @@ export const ALGO_PLAT_SESTRY = 'ALGO_PLAT_SESTRY';
 export const ALGO_PLAT_SKLADNIKA = 'ALGO_PLAT_SKLADNIKA';
 export const VYKONY_ODDELENI_ZA_ROK = 'VYKONY_ODDELENI_ZA_ROK';
 export const POMER_VYUZITI = 'POMER_VYUZITI';
+export const EDIT_ITEM = 'EDIT_ITEM';
 
 export const addItem = (komponenta, pocet_ks, cena_ks, cena_celkem) => {
   return {
@@ -89,5 +90,17 @@ export const pomer_vyuziti = (pomer) => {
   return {
     type: POMER_VYUZITI,
     pomer
+  };
+};
+
+export const edit_item = (id, komponenta, pocet_ks, cena_ks, cena_celkem) => {
+  // console.log(id, komponenta, pocet_ks, cena_ks, cena_celkem);
+  return {
+    type: EDIT_ITEM,
+    id,
+    komponenta,
+    pocet_ks,
+    cena_ks,
+    cena_celkem
   };
 };
