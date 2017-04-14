@@ -48,15 +48,6 @@ class App extends Component {
               </div>
             </div>
           </div>
-          {/* <div className="nadpis">NADPIS <strong>KALKULAČKA</strong> SEMI CPT</div> */}
-          {/* <div className="logo">
-            <img src="/images/logo.png" />
-          </div> */}
-          {/* <div className="nazev-setu">
-            <form onSubmit={this.onSubmit}>
-              <input type="text" onChange={this.onChange} value={this.state.nazev_setu} />
-            </form>
-          </div> */}
         </header>
         <section className="row">
           <div className="vstupni_udaje wrap column">
