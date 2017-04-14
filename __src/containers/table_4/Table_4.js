@@ -9,16 +9,6 @@ import * as actions from '../../actions';
 import Table from '../../components/table/Table';
 
 class Table_4 extends Component {
-  // componentDidMount() {
-  //   document.querySelector('.plus-icon').addEventListener('keypress', function (e) {
-  //     var key = e.which || e.keyCode;
-  //     if (key === 13) { // 13 is enter
-  //       // code for enter
-  //       this.addItem()
-  //     }
-  //   });
-  // }
-
   constructor() {
     super();
     this.state = {
@@ -65,9 +55,7 @@ class Table_4 extends Component {
   //   this.setState({cena_celkem: event.target.value});
   // }
 
-  addItem(event) {
-    event.preventDefault()
-
+  addItem() {
     let komponenta = this.state.komponenta;
     let pocet_ks = this.state.pocet_ks;
     let cena_ks = this.state.cena_ks;
@@ -81,12 +69,32 @@ class Table_4 extends Component {
     })
 
     this.props.addItem(komponenta, pocet_ks, cena_ks, cena_celkem);
-
-    // focus na komponenta-jmeno
-    $('.komponenta-jmeno').focus()
   }
 
   render() {
+    // console.log('items', items);
+
+    // let body = [];
+    // let komponenta,
+    //     pocet_ks,
+    //     cena_ks,
+    //     cena_celkem;
+    //
+    // if (this.props.items) {
+    //   let items = this.props.items;
+    // 	console.log('table4 items', items)
+    //
+    //   items.forEach(function(item) {
+    //       console.log('table4', item);
+    //       body.push([ item.komponenta, item.pocet_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ","), item.cena_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ","), item.cena_celkem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ","), "" ])
+    //
+    //     // if(typeof item !== 'undefined') {
+    //     //   console.log('table4', item);
+    //     //   body.push([ item.komponenta, item.pocet_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ","), item.cena_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ","), item.cena_celkem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ","), "" ])
+    //     // }
+    //   })
+    // }
+
     let body = []
     let suma_ks = []
     let suma_celkova_cena = []
@@ -98,13 +106,13 @@ class Table_4 extends Component {
     items.forEach(function(item) {
       if(typeof item !== 'undefined') {
         // console.log('inside items forEach', item);
-        body.push([ item.komponenta, item.pocet_ks.toString().replace(".", ",") + ' ks', item.cena_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",") + ' Kč', item.cena_celkem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",") + ' Kč', "" ])
+        body.push([ item.komponenta, item.pocet_ks.toString().replace(".", ","), item.cena_ks.toString().replace(".", ","), item.cena_celkem.toString().replace(".", ","), "" ])
         suma_ks.push(parseFloat(item.pocet_ks))
         suma_celkova_cena.push(parseFloat(item.cena_celkem))
       }
     })
 
-    // console.log(suma_ks, suma_celkova_cena);
+    console.log(suma_ks, suma_celkova_cena);
     var sum_suma_ks = suma_ks.reduce((a, b) => a + b, 0);
     var sum_suma_celkova_cena = suma_celkova_cena.reduce((a, b) => a + b, 0);
 
@@ -114,16 +122,11 @@ class Table_4 extends Component {
     	  <table className="table-4">
           <thead>
             <tr>
-              {/* <th className="text-left" style={{width: 30 + '%'}}></th>
+              <th className="text-left" style={{width: 30 + '%'}}></th>
               <th style={{width: 20 + '%'}}></th>
               <th style={{width: 20 + '%'}}></th>
               <th style={{width: 20 + '%'}}></th>
-              <th style={{width: 10 + '%'}}></th> */}
-              <th className="text-left" style={{width: 28.5 + '%'}}></th>
-              <th style={{width: 17 + '%'}}></th>
-              <th style={{width: 22 + '%'}}></th>
-              <th style={{width: 22 + '%'}}></th>
-              <th style={{width: 10.5 + '%'}}></th>
+              <th style={{width: 10 + '%'}}></th>
             </tr>
             <tr>
               <th>Komponenta</th>
@@ -134,12 +137,17 @@ class Table_4 extends Component {
           </thead>
           <tbody>
             <tr>
-              <td><form onSubmit={this.addItem}><input className="komponenta-jmeno" type="text" value={this.state.komponenta} onChange={this.handleKomponenta} /></form></td>
-              <td><form onSubmit={this.addItem}><input type="text" value={this.state.pocet_ks} onChange={this.handlePocetKs} /></form></td>
-              <td><form onSubmit={this.addItem}><input type="text" value={this.state.cena_ks} onChange={this.handleCenaKs} /> Kč</form></td>
+              <td><input type="text" value={this.state.komponenta} onChange={this.handleKomponenta} /></td>
+              {/* <td><NumberFormat displayType={'input'} decimalSeparator={","} value={this.state.komponenta.toString()} thousandSeparator={" "} onChange={this.handleKomponenta} /></td> */}
+              <td><input type="text" value={this.state.pocet_ks} onChange={this.handlePocetKs} /></td>
+              {/* <td><NumberFormat displayType={'input'} decimalSeparator={","} value={this.state.pocet_ks.toString()} thousandSeparator={" "} onChange={this.handlePocetKs} /></td> */}
+              <td><input type="text" value={this.state.cena_ks} onChange={this.handleCenaKs} /> Kč</td>
+              {/* <td><NumberFormat displayType={'input'} decimalSeparator={","} value={this.state.cena_ks.toString()} thousandSeparator={" "} onChange={this.handleCenaKs} /> Kč</td> */}
+              {/* <td><input type="text" value={this.state.cena_celkem} onChange={this.handleCenaCelkem} /> Kč</td> */}
               <td className="komponenty-celkova-cena-wrapper">
                 <div className="komponenty-celkova-cena">
                   {this.state.cena_celkem || 0} Kč
+                  {/* <NumberFormat displayType={'text'} decimalSeparator={","} value={this.state.cena_celkem.toString()} thousandSeparator={" "} onChange={false} /> Kč */}
                 </div>
               </td>
               <td><span className="plus-icon" onClick={this.addItem}>+</span></td>
@@ -147,27 +155,26 @@ class Table_4 extends Component {
           </tbody>
         </table>
         <Table classNamee={"products-main-table"} widths={[30,20,20,20,10]} head={[]} body={body}  />
-        <table className="komponenty-vysledky-celkem">
+        <table>
           <thead>
             <tr>
-              <th className="text-left" style={{width: 28.5 + '%'}}></th>
-              <th style={{width: 17 + '%'}}></th>
-              <th style={{width: 22 + '%'}}></th>
-              <th style={{width: 22 + '%'}}></th>
-              <th style={{width: 10.5 + '%'}}></th>
+              <th className="text-left" style={{width: 30 + '%'}}></th>
+              <th style={{width: 20 + '%'}}></th>
+              <th style={{width: 20 + '%'}}></th>
+              <th style={{width: 20 + '%'}}></th>
+              <th style={{width: 10 + '%'}}></th>
             </tr>
-            {/* <tr>
-              <th></th>
-              <th>Celkem počet ks</th>
-              <th></th>
-              <th>Celková cena</th>
-            </tr> */}
             <tr>
-              <th>Celkem počet ks</th>
-              <th>{sum_suma_ks + ' ks'}</th>
-              <th>Celková cena</th>
-              <th>{sum_suma_celkova_cena.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",") + ' Kč'}</th>
               <th></th>
+              <th>Celkem počet ks</th>
+              <th></th>
+              <th>Celková cena</th>
+            </tr>
+            <tr>
+              <th></th>
+              <th>{sum_suma_ks}</th>
+              <th></th>
+              <th>{sum_suma_celkova_cena}</th>
             </tr>
           </thead>
           <tbody>

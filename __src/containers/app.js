@@ -11,52 +11,15 @@ import Table_4 from './table_4/Table_4';
 import Table_Results from './table_results/Table_Results';
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      nazev_setu: 'Název setu'
-    }
-
-    this.onChange = this.onChange.bind(this)
-  }
-
-  onChange(event) {
-    this.setState({
-      nazev_setu: event.target.default
-    })
-  }
-
   render() {
     return (
       <div>
         <header className="row">
-          <div className="row">
-            <div className="column size_100">
-              <div className="nadpis">NADPIS <strong>KALKULAČKA</strong> SEMI CPT</div>
-              <div className="logo">
-                <img src="/images/logo.png" />
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="column size_100">
-              <div className="nazev-setu">
-                <form onSubmit={this.onSubmit}>
-                  <input type="text" onChange={this.onChange} value={this.state.nazev_setu} />
-                </form>
-              </div>
-            </div>
-          </div>
-          {/* <div className="nadpis">NADPIS <strong>KALKULAČKA</strong> SEMI CPT</div> */}
-          {/* <div className="logo">
+          <div className="nadpis">NADPIS <strong>KALKULAČKA</strong> SEMI CPT</div>
+          {/* <div className="logo"></div> */}
+          <div className="logo">
             <img src="/images/logo.png" />
-          </div> */}
-          {/* <div className="nazev-setu">
-            <form onSubmit={this.onSubmit}>
-              <input type="text" onChange={this.onChange} value={this.state.nazev_setu} />
-            </form>
-          </div> */}
+          </div>
         </header>
         <section className="row">
           <div className="vstupni_udaje wrap column">

@@ -2,6 +2,8 @@ body {
   margin: 25px;
   font-family: 'open_sansregular';
   color: #000;
+  letter-spacing: 0.05;
+  line-height: 1.5;
 }
 
 input {
@@ -14,7 +16,6 @@ table {
 }
 
 header.row {
-  /*margin: 0 0 50px 0;*/
   margin-bottom: 50px;
   color: #56a2ac;
 }
@@ -35,6 +36,17 @@ strong {
   float: left;
   padding-top: 35px;
   font-size: 1.5em;
+}
+
+.nazev-setu {
+  margin-top: 30px;
+}
+
+.nazev-setu input {
+  font-size: 1.5em;
+  border: none;
+  text-align: left;
+  color: #56a2ac;
 }
 
 .products-main-table {
@@ -267,6 +279,40 @@ table input {
   margin-right: 10px;
 }
 
+.komponenty table.products-main-table tbody tr:last-of-type td {
+  border-bottom: none;
+}
+
+.edit-row {
+  padding: 10px;
+}
+
+.komponenty table:last-of-type thead tr:first-of-type th {
+  background-color: transparent;
+  /*display: none*/
+}
+
+.komponenty table:last-of-type thead tr th {
+  /*text-align: left;*/
+  background: #5caec9;
+  color: #fff;
+  border: 2px solid white;
+  padding: 5px 10px;
+}
+
+/*.komponenty table:last-of-type thead tr:last-child th:last-child {
+  border: 2px solid #5caec9;
+}*/
+
+/*.komponenty table:last-of-type thead tr:last-child {
+  width: 100%;
+  background: #5caec9;
+}*/
+
+/*.komponenty table:last-of-type thead tr th:last-child {
+  border: 2px solid #5caec9;
+}*/
+
 /*table tbody tr td.komponenty-celkova-cena {
   padding: 0 0 0 0;
 }*/
@@ -329,7 +375,8 @@ table input {
 #modal .modalContent {
   background-color: #fefefe;
   margin: 5% auto;
-  padding: 5em 2em 2em 2em;
+  /*padding: 5em 2em 2em 2em;*/
+  padding: 5em 6em 2em 6em;
   border-radius: 0.25em;
   width: 90%;
   z-index: 991;
@@ -347,16 +394,51 @@ table input {
 
 .modalContent form {
   margin: 1em 0 4em 0;
+  text-align: center;
 }
 
-/*.modalContent table {
-  margin-bottom: 2em;
-}*/
+.modalContent input {
+  padding: 20px;
+  margin-bottom: 20px;
+}
 
-/*#modal input[type=file] {
-  visibility: visible;
-  display: block;
-}*/
+#modal h2 {
+  background-color: transparent;
+  color: #000;
+  border: none;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+#modal input {
+  width: 100%;
+}
+
+#modal button {
+  border: 1px solid #000;
+  padding: 10px 50px;
+  border-radius: 0;
+  margin: 10px;
+}
+
+#modal .modal-submit {
+  background-color: #5caec9;
+  border: 1px solid #5caec9;
+  color: #fff;
+}
+
+#modal .modal-cancel {
+  background-color: #fff;
+}
+
+
+
+
+
+
+
+
+
 
 
 
