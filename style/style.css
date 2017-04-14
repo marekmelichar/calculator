@@ -529,7 +529,8 @@ table input {
 
   .vystup {
     margin-top: 60px;
-    margin-left: 0;
+    /*margin-left: 0;*/
+    margin-left: 18px;
   }
 
   .komponenty-celkova-cena {
@@ -541,9 +542,9 @@ table input {
 
 @media screen and (max-width: 768px) {
 
-  /*.vystup {
+  .vystup {
     margin-top: 60px;
     margin-left: 0;
-  }*/
+  }
 
 }
