@@ -15,7 +15,7 @@ class App extends Component {
     super(props)
 
     this.state = {
-      nazev_setu: 'Název setu'
+      nazev_setu: 'NÁZEV SETU'
     }
 
     this.onChange = this.onChange.bind(this)
@@ -33,9 +33,9 @@ class App extends Component {
         <header className="row">
           <div className="row">
             <div className="column size_100">
-              <div className="nadpis">NADPIS <strong>KALKULAČKA</strong> SEMI CPT</div>
+              <div className="nadpis"><strong>KALKULAČKA</strong> SEMI CPT</div>
               <div className="logo">
-                <img src="/images/logo.png" />
+                <img src="images/logo.png" />
               </div>
             </div>
           </div>
