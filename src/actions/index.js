@@ -1,3 +1,5 @@
+// import { v4 } from 'node-uuid';
+
 /*
  * action types
  */
@@ -13,6 +15,7 @@ export const ALGO_PLAT_SKLADNIKA = 'ALGO_PLAT_SKLADNIKA';
 export const VYKONY_ODDELENI_ZA_ROK = 'VYKONY_ODDELENI_ZA_ROK';
 export const POMER_VYUZITI = 'POMER_VYUZITI';
 export const EDIT_ITEM = 'EDIT_ITEM';
+// export const SAVE = 'SAVE';
 
 export const addItem = (komponenta, pocet_ks, cena_ks, cena_celkem) => {
   return {
@@ -104,3 +107,9 @@ export const edit_item = (id, komponenta, pocet_ks, cena_ks, cena_celkem) => {
     cena_celkem
   };
 };
+
+// export const saveTheState = (tree) => ({
+//   type: SAVE,
+//   id: v4(),
+//   tree
+// })

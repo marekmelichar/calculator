@@ -34,6 +34,7 @@ class App extends Component {
           <div className="row">
             <div className="column size_100">
               <div className="nadpis"><strong>KALKULAČKA</strong> SEMI CPT</div>
+              {/* <button onClick={() => this.props.saveTheState()}>SAVE</button> */}
               <div className="logo">
                 <img src="images/logo.png" />
               </div>

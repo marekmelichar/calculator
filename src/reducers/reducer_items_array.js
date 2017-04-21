@@ -1,3 +1,4 @@
+// import { REHYDRATE } from 'redux-persist/constants';
 import update from 'react-addons-update';
 import { ADD_ITEM, REMOVE_ITEM, EDIT_ITEM } from '../actions/index';
 
@@ -12,6 +13,10 @@ let INITIAL_STATE = [];
 export default function(state = INITIAL_STATE, action) {
   // console.log(action.komponenta, action.pocet_ks, action.cena_ks, action.cena_celkem);
   switch (action.type) {
+    // case SAVE:
+    //   console.log(action.payload);
+    //   return action.payload || []
+
     case ADD_ITEM:
       return [
         ...state,

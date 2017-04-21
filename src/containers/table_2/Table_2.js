@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import NumberFormat from 'react-number-format';
+// import NumberFormat from 'react-number-format';
 
 import { connect } from 'react-redux';
 
