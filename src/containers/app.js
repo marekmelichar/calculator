@@ -33,7 +33,7 @@ class App extends Component {
         <header className="row">
           <div className="row">
             <div className="column size_100">
-              <div className="nadpis"><strong>KALKULAČKA</strong> SEMI CPT</div>
+              <div className="nadpis"><strong>KALKULAČKA</strong> CombiSet</div>
               {/* <button onClick={() => this.props.saveTheState()}>SAVE</button> */}
               <div className="logo">
                 <img src="images/logo.png" />

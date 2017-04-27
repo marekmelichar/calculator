@@ -1,9 +1,17 @@
 @media print {
 
+  html[data-useragent*='rv:11.0'] .hidden-logo-for-print {
+    margin-top: 50px;
+  }
+
+  html[data-useragent*='rv:11.0'] .komponenty {
+    margin-top: 10px;
+  }
+
   body {
     margin: 5px;
     color: #000;
-    font-family: 'open_sansregular';
+    font-family: 'open_sansregular', sans-serif;
   }
 
   .column, [class*="column"]+[class*="column"]:last-child, [class*="column"]+[class*="column"].end:last-child, [class*="column"]+[class*="column"].end {
@@ -53,7 +61,7 @@
   }
 
   .vstupni_udaje.wrap {
-    margin-top: 10px;
+    margin-top: 50px;
   }
 
   .vstupni_udaje.wrap h1,
