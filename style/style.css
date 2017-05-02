@@ -60,6 +60,12 @@ strong {
   margin-bottom: 2em;
 }
 
+.table-1 input,
+.table-2 input,
+.table-3 input {
+  font-size: 10px;
+}
+
 .table-4 {
   margin-bottom: 1em;
 }
