@@ -8,6 +8,14 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 class Table_1 extends Component {
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      sestra: nextProps.sestra_mesicne,
+      skladnik: nextProps.skladnik_mesicne,
+      ucetni: nextProps.ucetni_mesicne
+    })
+  }
+
   constructor() {
     super();
     this.state = {
@@ -130,7 +138,9 @@ const mapStateToProps = state => {
   // console.log(state);
   // whatever is returned here, gets in as a prop
   return {
-
+    sestra_mesicne: state.logic.mesicne_sestra,
+    skladnik_mesicne: state.logic.mesicne_skladnik,
+    ucetni_mesicne: state.logic.mesicne_ucetni
   };
 };
 

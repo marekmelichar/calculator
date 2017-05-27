@@ -2,7 +2,9 @@ import { ALGO_PLAT_SESTRY, POCET_POUZITI_ZA_ROK, ALGO_PLAT_SKLADNIKA, POCET_KOMP
 
 let INITIAL_STATE = {
   mesicne_sestra: 34000,
-  mesicne_skladnik: 25000
+  mesicne_skladnik: 25000,
+  vykon_oddeleni_za_rok_input: 0,
+  pomer_vyuziti_input: 0
 };
 
 export default function(state = INITIAL_STATE, action) {

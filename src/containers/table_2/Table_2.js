@@ -7,9 +7,22 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 class Table_2 extends Component {
-  // componentWillReceiveProps(nextProps) {
-  //   this.props.celkova_cena_za_komponenty_v_setu(this.ceny_komponent_v_setu_SUMA);
-  //
+  componentWillReceiveProps(nextProps) {
+    // console.log('table 2 nextProps', nextProps.pocet__komponent_v_setu);
+    // this.props.celkova_cena_za_komponenty_v_setu(this.ceny_komponent_v_setu_SUMA);
+    this.setState({
+      pouziti: nextProps.pocet__pouziti_za_rok.pocet,
+      komponenty: nextProps.pocet__komponent_v_setu.suma,
+      cena_za_set: nextProps.cena__za_set.cena,
+      celkova_cena: nextProps.celkova__cena_za_komponenty_v_setu.cena
+    })
+  }
+
+  // componentDidReceiveProps() {
+  //   // this.props.celkova_cena_za_komponenty_v_setu(this.ceny_komponent_v_setu_SUMA);
+  //   this.setState({
+  //     pouziti: this.props.pocet__pouziti_za_rok
+  //   })
   // }
 
   constructor() {
@@ -57,6 +70,7 @@ class Table_2 extends Component {
   }
 
   render() {
+// console.log('state of Table_2', this.state);
 
     let pocet_komponent_v_setu_array = [];
     let ceny_komponent_v_setu_array = [];
@@ -75,9 +89,7 @@ class Table_2 extends Component {
     let pocet_komponent_v_setu_SUMA = pocet_komponent_v_setu_array.reduce((a, b) => a + b, 0);
     let ceny_komponent_v_setu_SUMA = ceny_komponent_v_setu_array.reduce((a, b) => a + b, 0);
 
-    // this.ceny_komponent_v_setu_SUMA = ceny_komponent_v_setu_SUMA;
-
-    this.props.celkova_cena_za_komponenty_v_setu(ceny_komponent_v_setu_SUMA);
+    // this.props.celkova_cena_za_komponenty_v_setu(ceny_komponent_v_setu_SUMA);
 
     return (
   	  <table className="table-2 cpt-set">
@@ -125,7 +137,11 @@ const mapStateToProps = state => {
   // console.log(state);
   // whatever is returned here, gets in as a prop
   return {
-    items: state.items || []
+    items: state.items || [],
+    pocet__pouziti_za_rok: state.pocet_pouziti_za_rok,
+    pocet__komponent_v_setu: state.pocet_komponent_v_setu,
+    cena__za_set: state.cena_za_set,
+    celkova__cena_za_komponenty_v_setu: state.celkova_cena_za_komponenty_v_setu
   };
 };
 

@@ -7,6 +7,13 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 class Table_3 extends Component {
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      vykony_na_oddeleni_za_rok: nextProps.vykony__na_oddeleni_za_rok,
+      pomer_pouziti: nextProps.pomer__pouziti
+    })
+  }
+
   constructor() {
     super();
     this.state = {
@@ -69,7 +76,8 @@ const mapStateToProps = state => {
   // console.log(state);
   // whatever is returned here, gets in as a prop
   return {
-
+    vykony__na_oddeleni_za_rok: state.logic.vykon_oddeleni_za_rok_input || 0,
+    pomer__pouziti: state.logic.pomer_vyuziti_input || 0
   };
 };
 

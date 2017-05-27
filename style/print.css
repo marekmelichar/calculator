@@ -215,4 +215,8 @@
   .nazev-setu input {
     color: #000;
   }
+
+  #saveFeature {
+    display: none;
+  }
 }

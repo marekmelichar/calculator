@@ -8,6 +8,8 @@ import * as actions from '../../actions';
 
 import Table from '../../components/table/Table';
 
+// import FileSaver from 'file-saver';
+
 class Table_4 extends Component {
   // componentDidMount() {
   //   document.querySelector('.plus-icon').addEventListener('keypress', function (e) {
@@ -33,6 +35,7 @@ class Table_4 extends Component {
     this.handleCenaKs = this.handleCenaKs.bind(this);
     // this.handleCenaCelkem = this.handleCenaCelkem.bind(this);
     this.addItem = this.addItem.bind(this);
+    // this.saveFile = this.saveFile.bind(this)
   }
 
   handleKomponenta(event) {
@@ -180,6 +183,7 @@ class Table_4 extends Component {
             </tr>
           </tbody>
         </table>
+        {/* <a href="#" onClick={this.saveFile}>Save As</a> */}
       </div>
     );
   }
@@ -190,6 +194,7 @@ const mapStateToProps = state => {
   // whatever is returned here, gets in as a prop
   return {
     items: state.items || []
+    // save: state.save
   };
 };
 
