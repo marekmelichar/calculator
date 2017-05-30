@@ -10,9 +10,11 @@ export const CELKOVA_CENA_ZA_KOMPONENTY_V_SETU = 'CELKOVA_CENA_ZA_KOMPONENTY_V_S
 export const POCET_POUZITI_ZA_ROK = 'POCET_POUZITI_ZA_ROK';
 export const ALGO_PLAT_SESTRY = 'ALGO_PLAT_SESTRY';
 export const ALGO_PLAT_SKLADNIKA = 'ALGO_PLAT_SKLADNIKA';
+export const ALGO_PLAT_UCETNI = 'ALGO_PLAT_UCETNI';
 export const VYKONY_ODDELENI_ZA_ROK = 'VYKONY_ODDELENI_ZA_ROK';
 export const POMER_VYUZITI = 'POMER_VYUZITI';
 export const EDIT_ITEM = 'EDIT_ITEM';
+export const NAZEV_SETU = 'NAZEV_SETU';
 // export const SAVE = 'SAVE';
 // export const LOAD_JSON = 'LOAD_JSON';
 
@@ -81,6 +83,14 @@ export const algo_plat_skladnika = (plat) => {
   };
 };
 
+export const algo_plat_ucetni = (plat) => {
+  // console.log('plat skladnika', plat);
+  return {
+    type: ALGO_PLAT_UCETNI,
+    plat
+  };
+};
+
 export const vykony_na_oddeleni_za_rok = (vykon) => {
   // console.log(plat);
   return {
@@ -106,5 +116,13 @@ export const edit_item = (id, komponenta, pocet_ks, cena_ks, cena_celkem) => {
     pocet_ks,
     cena_ks,
     cena_celkem
+  };
+};
+
+export const nazevSetu = (nazev) => {
+  // console.log(nazev);
+  return {
+    type: NAZEV_SETU,
+    nazev
   };
 };

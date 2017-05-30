@@ -6,6 +6,7 @@ import CenaZaSet from './reducer_cena_za_set';
 import CelkovaCenaZaKomponentyVSetu from './reducer_celkova_cena_za_komponenty_v_setu';
 import PocetPouzitiZaRok from './reducer_pocet_pouziti_za_rok';
 import Logics from './reducer_logic';
+import NazevSetu from './reducer_nazev_setu';
 // import Save from './reducer_save';
 // import LoadJSON from './reducer_load_JSON';
 
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   cena_za_set: CenaZaSet,
   celkova_cena_za_komponenty_v_setu: CelkovaCenaZaKomponentyVSetu,
   pocet_pouziti_za_rok: PocetPouzitiZaRok,
-  logic: Logics
+  logic: Logics,
+  nazev_setu: NazevSetu
   // json: LoadJSON
   // save: Save
 });

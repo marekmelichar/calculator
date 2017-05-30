@@ -82,6 +82,7 @@ class Table_1 extends Component {
     let value = event.target.value
 
     this.setState({ucetni: value});
+    this.props.algo_plat_ucetni(value.replace(/\s+/g, '')); // delete spaces in the number
   }
 
   render() {

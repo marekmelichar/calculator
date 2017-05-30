@@ -1,8 +1,9 @@
-import { ALGO_PLAT_SESTRY, POCET_POUZITI_ZA_ROK, ALGO_PLAT_SKLADNIKA, POCET_KOMPONENT_V_SETU, VYKONY_ODDELENI_ZA_ROK, POMER_VYUZITI } from '../actions/index';
+import { ALGO_PLAT_SESTRY, POCET_POUZITI_ZA_ROK, ALGO_PLAT_SKLADNIKA, ALGO_PLAT_UCETNI, POCET_KOMPONENT_V_SETU, VYKONY_ODDELENI_ZA_ROK, POMER_VYUZITI } from '../actions/index';
 
 let INITIAL_STATE = {
   mesicne_sestra: 34000,
   mesicne_skladnik: 25000,
+  mesicne_ucetni: 30000,
   vykon_oddeleni_za_rok_input: 0,
   pomer_vyuziti_input: 0
 };
@@ -35,6 +36,15 @@ export default function(state = INITIAL_STATE, action) {
     return({
        ...state,
        mesicne_skladnik
+    })
+    break;
+
+    case ALGO_PLAT_UCETNI:
+      let mesicne_ucetni = parseFloat(action.plat)
+
+    return({
+       ...state,
+       mesicne_ucetni
     })
     break;
 
