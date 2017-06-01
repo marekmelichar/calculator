@@ -297,7 +297,7 @@ class Table_Results extends Component {
               <tr>
                 <td>Objednávání - pracovník CS</td>
                 <td>CPT set</td>
-                <td>{objednavani_naklady_na_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} kč</td>
+                <td>{objednavani_naklady_na_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
                 {/* <td><NumberFormat displayType={'text'} decimalSeparator={","} value={objednavani_naklady_na_ks.toString()} thousandSeparator={" "} /> Kč</td> */}
                 <td>Komponenty</td>
                 <td>{objednavani_naklady.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
@@ -305,30 +305,30 @@ class Table_Results extends Component {
               <tr>
                 <td>Skladování centrální sklad - pracovník CS</td>
                 <td>CPT set</td>
-                <td>{skladovani_inventarizace_celkove_naklady_na_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} kč</td>
+                <td>{skladovani_inventarizace_celkove_naklady_na_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
                 <td>Komponenty</td>
                 <td>{skladovani_inventarizace_celkove_naklady.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
               </tr>
               <tr>
                 <td>Skladování COS - sestra</td>
                 <td>CPT set</td>
-                <td>{skladovani_COS_sestra_naklady_na_kus.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} kč</td>
+                <td>{skladovani_COS_sestra_naklady_na_kus.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
                 <td>Komponenty</td>
                 <td>{skladovani_COS_sestra_naklady.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
               </tr>
               <tr>
                 <td>Vychystávání - sestra CS</td>
                 <td>CPT set</td>
-                <td>{vychystavani_evidence_celkove_naklady_na_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} kč</td>
+                <td>{vychystavani_evidence_celkove_naklady_na_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
                 <td>Komponenty</td>
                 <td>{vychystavani_evidence_celkove_naklady.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
               </tr>
               <tr>
                 <td>Celkem</td>
                 <td>1ks CPT set</td>
-                <td>{suma.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} kč</td>
+                <td>{suma.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
                 <td>Komponenty</td>
-                <td>{suma_komponenty.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} kč</td>
+                <td>{suma_komponenty.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
                 {/* <td><NumberFormat value={suma_komponenty.toFixed(2)} thousandSeparator={true} displayType={'text'} format="#### #### #### ####" /></td> */}
                 {/* <td><NumberFormat value={suma_komponenty.toFixed(2)} displayType={'text'} /></td> */}
                 {/* <td>
@@ -501,37 +501,37 @@ export default connect(mapStateToProps, actions)(Table_Results);
 //           <tr>
 //             <td>Objednávání - pracovník CS</td>
 //             <td>CPT set</td>
-//             <td>{this.state.objednavani.toFixed(2)} kč</td>
+//             <td>{this.state.objednavani.toFixed(2)} Kč</td>
 //             <td>Komponenty</td>
 //             <td>{this.state.objednavani_komponenty.toFixed(2)}</td>
 //           </tr>
 //           <tr>
 //             <td>Skladování centrální sklad - pracovník CS</td>
 //             <td>CPT set</td>
-//             <td>{this.state.skladovani_centralni_sklad.toFixed(2)} kč</td>
+//             <td>{this.state.skladovani_centralni_sklad.toFixed(2)} Kč</td>
 //             <td>Komponenty</td>
 //             <td>{this.state.skladovani_centralni_sklad_komponenty.toFixed(2)}</td>
 //           </tr>
 //           <tr>
 //             <td>Skladování COS - sestra</td>
 //             <td>CPT set</td>
-//             <td>{this.state.skladovani_COS.toFixed(2)} kč</td>
+//             <td>{this.state.skladovani_COS.toFixed(2)} Kč</td>
 //             <td>Komponenty</td>
 //             <td>{this.state.skladovani_COS_komponenty}</td>
 //           </tr>
 //           <tr>
 //             <td>Vychystávání - sestra CS</td>
 //             <td>CPT set</td>
-//             <td>{this.state.vychystavani.toFixed(2)} kč</td>
+//             <td>{this.state.vychystavani.toFixed(2)} Kč</td>
 //             <td>Komponenty</td>
 //             <td>{this.state.vychystavani_komponenty.toFixed(2)}</td>
 //           </tr>
 //           <tr>
 //             <td>Celkem</td>
 //             <td>1ks CPT set</td>
-//             <td>{suma} kč</td>
+//             <td>{suma} Kč</td>
 //             <td>Komponenty</td>
-//             <td>{suma_komponenty} kč</td>
+//             <td>{suma_komponenty} Kč</td>
 //           </tr>
 //         </tbody>
 //         <tbody className="finalni-uspora">
