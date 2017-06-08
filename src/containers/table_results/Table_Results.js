@@ -388,7 +388,6 @@ class Table_Results extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log(state.logic);
   // whatever is returned here, gets in as a prop
   return {
     cena_za_komplet_set: state.cena_za_set.cena || 0,

@@ -66,7 +66,7 @@ class App extends Component {
         _this.props.pocet_pouziti_za_rok(data.pocet_pouziti_za_rok.pocet)
         _this.props.pocet_komponent_v_setu_SUMA(data.pocet_komponent_v_setu.suma)
         _this.props.cena_za_set(data.cena_za_set.cena)
-        _this.props.celkova_cena_za_komponenty_v_setu(data.celkova_cena_za_komponenty_v_setu.cena)
+        _this.props.celkova_cena_za_komponenty_v_setu(data.celkova_cena_za_komponenty_v_setu.cena, 1)
         _this.props.vykony_na_oddeleni_za_rok(data.logic.vykon_oddeleni_za_rok_input)
         _this.props.pomer_vyuziti(data.logic.pomer_vyuziti_input)
         _this.props.nazevSetu(data.nazev_setu.nazev)

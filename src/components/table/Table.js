@@ -33,6 +33,7 @@ class Table extends Component {
     removeItem(event) {
       // console.log(event.target.id);
       this.props.removeItem(event.target.id);
+      // this.props.celkova_cena_za_komponenty_v_setu(0);
     }
 
     // editItem(event) {

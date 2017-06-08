@@ -111,6 +111,9 @@ class Table_4 extends Component {
     var sum_suma_ks = suma_ks.reduce((a, b) => a + b, 0);
     var sum_suma_celkova_cena = suma_celkova_cena.reduce((a, b) => a + b, 0);
 
+    // every time it renders, send out SUM, and decision is 1
+    this.props.celkova_cena_za_komponenty_v_setu(sum_suma_celkova_cena ? sum_suma_celkova_cena : 0, 1);
+
     return (
       <div>
         <h2>CPT set - jednotlivé komponenty</h2>

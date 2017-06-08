@@ -19,6 +19,7 @@ export const NAZEV_SETU = 'NAZEV_SETU';
 // export const LOAD_JSON = 'LOAD_JSON';
 
 export const addItem = (komponenta, pocet_ks, cena_ks, cena_celkem) => {
+  // console.log('komponenta, pocet_ks, cena_ks, cena_celkem', komponenta, pocet_ks, cena_ks, cena_celkem);
   return {
     type: ADD_ITEM,
     komponenta,
@@ -51,11 +52,12 @@ export const cena_za_set = (cena) => {
   };
 };
 
-export const celkova_cena_za_komponenty_v_setu = (cena) => {
+export const celkova_cena_za_komponenty_v_setu = (cena, decision) => {
   // console.log('celkova_cena_za_komponenty_v_setu', cena);
   return {
     type: CELKOVA_CENA_ZA_KOMPONENTY_V_SETU,
-    cena
+    cena,
+    decision
   };
 };
 

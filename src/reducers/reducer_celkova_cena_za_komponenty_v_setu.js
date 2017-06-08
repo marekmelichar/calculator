@@ -7,7 +7,8 @@ export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case CELKOVA_CENA_ZA_KOMPONENTY_V_SETU:
       return({
-        cena: action.cena
+        cena: action.cena,
+        decision: action.decision
       });
       break;
     default:

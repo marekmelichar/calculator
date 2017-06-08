@@ -8,14 +8,17 @@ import * as actions from '../../actions';
 
 class Table_2 extends Component {
   componentWillReceiveProps(nextProps) {
-    // console.log('table 2 nextProps', nextProps.pocet__komponent_v_setu);
-    // this.props.celkova_cena_za_komponenty_v_setu(this.ceny_komponent_v_setu_SUMA);
-    this.setState({
-      pouziti: nextProps.pocet__pouziti_za_rok.pocet,
-      komponenty: nextProps.pocet__komponent_v_setu.suma,
-      cena_za_set: nextProps.cena__za_set.cena,
-      celkova_cena: nextProps.celkova__cena_za_komponenty_v_setu.cena
-    })
+    // console.log('nextProps.celkova__cena_za_komponenty_v_setu', nextProps.celkova__cena_za_komponenty_v_setu);
+
+    if (nextProps.celkova__cena_za_komponenty_v_setu.decision) {
+      this.setState({
+        pouziti: nextProps.pocet__pouziti_za_rok.pocet,
+        komponenty: nextProps.pocet__komponent_v_setu.suma,
+        cena_za_set: nextProps.cena__za_set.cena,
+        celkova_cena: nextProps.celkova__cena_za_komponenty_v_setu.cena
+      })
+    }
+
   }
 
   // componentDidReceiveProps() {
@@ -67,6 +70,7 @@ class Table_2 extends Component {
 
   handleCelkovaCena(event) {
     this.setState({celkova_cena: event.target.value});
+    this.props.celkova_cena_za_komponenty_v_setu(event.target.value, 1)
   }
 
   render() {
