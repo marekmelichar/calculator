@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-// import NumberFormat from 'react-number-format';
-
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
@@ -21,13 +19,6 @@ class Table_2 extends Component {
 
   }
 
-  // componentDidReceiveProps() {
-  //   // this.props.celkova_cena_za_komponenty_v_setu(this.ceny_komponent_v_setu_SUMA);
-  //   this.setState({
-  //     pouziti: this.props.pocet__pouziti_za_rok
-  //   })
-  // }
-
   constructor() {
     super();
     this.state = {
@@ -43,12 +34,6 @@ class Table_2 extends Component {
     this.handleCelkovaCena = this.handleCelkovaCena.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.pocet_pouziti_za_rok(this.state.pouziti);
-  //   this.props.pocet_komponent_v_setu_SUMA(this.state.komponenty);
-  //   this.props.cena_za_set(this.state.cena_za_set);
-  // }
-
   handlePouziti(event) {
     let value = event.target.value;
     this.setState({pouziti: value});
@@ -58,7 +43,6 @@ class Table_2 extends Component {
   handleKomponenty(event) {
     let value = event.target.value;
     this.setState({komponenty: value});
-    // this.props.pocet_komponent_v_setu_SUMA(value ? value : this.state.komponenty);
     this.props.pocet_komponent_v_setu_SUMA(value);
   }
 
@@ -74,14 +58,11 @@ class Table_2 extends Component {
   }
 
   render() {
-// console.log('state of Table_2', this.state);
-
     let pocet_komponent_v_setu_array = [];
     let ceny_komponent_v_setu_array = [];
 
     if (this.props.items) {
       let items = this.props.items;
-// console.log('table 2', items)
       items.forEach(function(item) {
         if(typeof item !== 'undefined') {
           pocet_komponent_v_setu_array.push(parseInt(item.pocet_ks))
@@ -92,8 +73,6 @@ class Table_2 extends Component {
 
     let pocet_komponent_v_setu_SUMA = pocet_komponent_v_setu_array.reduce((a, b) => a + b, 0);
     let ceny_komponent_v_setu_SUMA = ceny_komponent_v_setu_array.reduce((a, b) => a + b, 0);
-
-    // this.props.celkova_cena_za_komponenty_v_setu(ceny_komponent_v_setu_SUMA);
 
     return (
   	  <table className="table-2 cpt-set">

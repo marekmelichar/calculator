@@ -8,19 +8,7 @@ import * as actions from '../../actions';
 
 import Table from '../../components/table/Table';
 
-// import FileSaver from 'file-saver';
-
 class Table_4 extends Component {
-  // componentDidMount() {
-  //   document.querySelector('.plus-icon').addEventListener('keypress', function (e) {
-  //     var key = e.which || e.keyCode;
-  //     if (key === 13) { // 13 is enter
-  //       // code for enter
-  //       this.addItem()
-  //     }
-  //   });
-  // }
-
   constructor() {
     super();
     this.state = {
@@ -33,9 +21,7 @@ class Table_4 extends Component {
     this.handleKomponenta = this.handleKomponenta.bind(this);
     this.handlePocetKs = this.handlePocetKs.bind(this);
     this.handleCenaKs = this.handleCenaKs.bind(this);
-    // this.handleCenaCelkem = this.handleCenaCelkem.bind(this);
     this.addItem = this.addItem.bind(this);
-    // this.saveFile = this.saveFile.bind(this)
   }
 
   handleKomponenta(event) {
@@ -44,19 +30,15 @@ class Table_4 extends Component {
 
   handlePocetKs(event) {
     let value = event.target.value
-    // console.log('pocet ks', value);
 
     this.setState({
       pocet_ks: value,
-      // cena_celkem: parseFloat(value * this.state.cena_ks).toFixed(2).replace(".", ",")
       cena_celkem: value * this.state.cena_ks
     });
   }
 
   handleCenaKs(event) {
     let value = event.target.value
-
-    // console.log('cena ks', this.state.pocet_ks, value);
 
     this.setState({
       cena_ks: value,
@@ -120,11 +102,6 @@ class Table_4 extends Component {
     	  <table className="table-4">
           <thead>
             <tr>
-              {/* <th className="text-left" style={{width: 30 + '%'}}></th>
-              <th style={{width: 20 + '%'}}></th>
-              <th style={{width: 20 + '%'}}></th>
-              <th style={{width: 20 + '%'}}></th>
-              <th style={{width: 10 + '%'}}></th> */}
               <th className="text-left" style={{width: 28.5 + '%'}}></th>
               <th style={{width: 17 + '%'}}></th>
               <th style={{width: 22 + '%'}}></th>
@@ -162,12 +139,6 @@ class Table_4 extends Component {
               <th style={{width: 22 + '%'}}></th>
               <th style={{width: 10.5 + '%'}}></th>
             </tr>
-            {/* <tr>
-              <th></th>
-              <th>Celkem počet ks</th>
-              <th></th>
-              <th>Celková cena</th>
-            </tr> */}
             <tr>
               <th>Celkem počet ks</th>
               <th>{sum_suma_ks + ' ks'}</th>

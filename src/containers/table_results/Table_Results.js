@@ -66,34 +66,7 @@ class Table_Results extends Component {
       vykon_oddeleni_za_rok_input: 1250,
       pomer_vyuziti_input: 40
     };
-
-    // this.numberWithCommas = this.numberWithCommas.bind(this);
   }
-
-  // numberWithCommas(x) {
-  //   console.log('x', x);
-  //   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  // }
-
-  // numberWithCommas(x) {
-  //   console.log('x', x);
-  //   var parts = x.toString().split(".");
-  //   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  //   return parts.join(".");
-  // }
-
-  // componentDidUpdate() {
-  //     // number = number.toFixed(2) + '';
-  //     let number = suma_komponenty;
-  //     x = number.split('.');
-  //     x1 = x[0];
-  //     x2 = x.length > 1 ? '.' + x[1] : '';
-  //     var rgx = /(\d+)(\d{3})/;
-  //     while (rgx.test(x1)) {
-  //         x1 = x1.replace(rgx, '$1' + ',' + '$2');
-  //     }
-  //     return x1 + x2;
-  // }
 
   render() {
 
@@ -279,13 +252,14 @@ class Table_Results extends Component {
 
     let suma, suma_komponenty;
     suma = (parseFloat(objednavani_naklady_na_ks) + parseFloat(skladovani_inventarizace_celkove_naklady_na_ks) + parseFloat(skladovani_COS_sestra_naklady_na_kus) + parseFloat(vychystavani_evidence_celkove_naklady_na_ks)).toFixed(2)
-    // suma_komponenty = (parseFloat(objednavani_naklady) + parseFloat(skladovani_inventarizace_celkove_naklady) + parseFloat(skladovani_COS_sestra_naklady) + parseFloat(vychystavani_evidence_celkove_naklady)).toFixed(2).replace(".", ",")
     suma_komponenty = (parseFloat(objednavani_naklady) + parseFloat(skladovani_inventarizace_celkove_naklady) + parseFloat(skladovani_COS_sestra_naklady) + parseFloat(vychystavani_evidence_celkove_naklady)).toFixed(2)
 
     let vystup_celkove_naklady_u_jedne_operace_CPT_set = parseFloat(this.props.cena_za_komplet_set) + parseFloat(suma)
     let vystup_celkove_naklady_u_jedne_operace_Komponenty = (parseFloat(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + parseFloat(suma_komponenty)).toFixed(2)
-    let vystup_celkove_naklady_za_rok_1_CPT_set = ((parseFloat(this.props.cena_za_komplet_set) + parseFloat(suma)) * parseFloat(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2)
-    let vystup_celkove_naklady_za_rok_Komponenty = ((parseFloat(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + parseFloat(suma_komponenty)) * parseFloat(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2)
+    // let vystup_celkove_naklady_za_rok_1_CPT_set = ((parseFloat(this.props.cena_za_komplet_set) + parseFloat(suma)) * parseFloat(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2)
+    let vystup_celkove_naklady_za_rok_1_CPT_set = ((parseFloat(this.props.cena_za_komplet_set) + parseFloat(suma)) * parseFloat(this.props.celkovy_pocet_pouziti_za_rok)).toFixed(2)
+    // let vystup_celkove_naklady_za_rok_Komponenty = ((parseFloat(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + parseFloat(suma_komponenty)) * parseFloat(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2)
+    let vystup_celkove_naklady_za_rok_Komponenty = ((parseFloat(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + parseFloat(suma_komponenty)) * parseFloat(this.props.celkovy_pocet_pouziti_za_rok)).toFixed(2)
 
     return (
       <div>
@@ -298,30 +272,29 @@ class Table_Results extends Component {
                 <td>Objednávání - pracovník CS</td>
                 <td>CPT set</td>
                 <td>{objednavani_naklady_na_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
-                {/* <td><NumberFormat displayType={'text'} decimalSeparator={","} value={objednavani_naklady_na_ks.toString()} thousandSeparator={" "} /> Kč</td> */}
                 <td>Komponenty</td>
-                <td>{objednavani_naklady.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
+                <td>{objednavani_naklady.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
               </tr>
               <tr>
                 <td>Skladování centrální sklad - pracovník CS</td>
                 <td>CPT set</td>
                 <td>{skladovani_inventarizace_celkove_naklady_na_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
                 <td>Komponenty</td>
-                <td>{skladovani_inventarizace_celkove_naklady.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
+                <td>{skladovani_inventarizace_celkove_naklady.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
               </tr>
               <tr>
                 <td>Skladování COS - sestra</td>
                 <td>CPT set</td>
                 <td>{skladovani_COS_sestra_naklady_na_kus.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
                 <td>Komponenty</td>
-                <td>{skladovani_COS_sestra_naklady.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
+                <td>{skladovani_COS_sestra_naklady.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
               </tr>
               <tr>
                 <td>Vychystávání - sestra CS</td>
                 <td>CPT set</td>
                 <td>{vychystavani_evidence_celkove_naklady_na_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
                 <td>Komponenty</td>
-                <td>{vychystavani_evidence_celkove_naklady.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
+                <td>{vychystavani_evidence_celkove_naklady.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
               </tr>
               <tr>
                 <td>Celkem</td>
@@ -329,15 +302,6 @@ class Table_Results extends Component {
                 <td>{suma.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
                 <td>Komponenty</td>
                 <td>{suma_komponenty.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
-                {/* <td><NumberFormat value={suma_komponenty.toFixed(2)} thousandSeparator={true} displayType={'text'} format="#### #### #### ####" /></td> */}
-                {/* <td><NumberFormat value={suma_komponenty.toFixed(2)} displayType={'text'} /></td> */}
-                {/* <td>
-                  <DynamicNumber
-                    // value={suma_komponenty.toFixed(2)}
-                    separator={','}
-                    thousand={' '}
-                  >{suma_komponenty.toFixed(2)}</DynamicNumber>
-                </td> */}
               </tr>
             </tbody>
           </table>
@@ -348,12 +312,6 @@ class Table_Results extends Component {
           <table className="rozdil_table">
             <tbody>
               <tr>
-                {/* <td style={{width: 40 + '%'}}></td>
-                <td style={{width: 10 + '%'}}></td>
-                <td style={{width: 10 + '%'}}></td>
-                <td style={{width: 10 + '%'}}></td>
-                <td style={{width: 10 + '%'}}></td>
-                <td style={{width: 10 + '%'}}>rozdíl (úspora)</td> */}
                 <td></td>
                 <td></td>
                 <td></td>
@@ -364,26 +322,24 @@ class Table_Results extends Component {
               <tr>
                 <td>Celkové náklady na použití u jedné operace</td>
                 <td>CPT set</td>
-                <td>{vystup_celkove_naklady_u_jedne_operace_CPT_set.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
+                <td>{vystup_celkove_naklady_u_jedne_operace_CPT_set.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
                 <td>Komponenty</td>
-                <td>{vystup_celkove_naklady_u_jedne_operace_Komponenty.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
-                <td>{(vystup_celkove_naklady_u_jedne_operace_CPT_set - vystup_celkove_naklady_u_jedne_operace_Komponenty).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
+                <td>{vystup_celkove_naklady_u_jedne_operace_Komponenty.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
+                <td>{(vystup_celkove_naklady_u_jedne_operace_CPT_set - vystup_celkove_naklady_u_jedne_operace_Komponenty).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
               </tr>
               <tr>
                 <td>Celkové náklady na použití za rok</td>
-                {/* <td>1ks CPT set</td> */}
                 <td>CPT set</td>
-                <td>{vystup_celkove_naklady_za_rok_1_CPT_set.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
+                <td>{vystup_celkove_naklady_za_rok_1_CPT_set.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
                 <td>Komponenty</td>
-                <td>{vystup_celkove_naklady_za_rok_Komponenty.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
-                <td>{(vystup_celkove_naklady_za_rok_1_CPT_set - vystup_celkove_naklady_za_rok_Komponenty).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")}</td>
+                <td>{vystup_celkove_naklady_za_rok_Komponenty.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
+                <td>{(vystup_celkove_naklady_za_rok_1_CPT_set - vystup_celkove_naklady_za_rok_Komponenty).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
     );
-    // console.log();
   }
 }
 
@@ -394,7 +350,6 @@ const mapStateToProps = state => {
     celkova_cena_za_komponenty_v_setu_SUMA: state.celkova_cena_za_komponenty_v_setu.cena || 0,
     celkovy_pocet_pouziti_za_rok: state.pocet_pouziti_za_rok.pocet || 0,
     logika: state.logic
-    // skladovani_COS_sestra: state.algo_platy.sestra
   };
 };
 
