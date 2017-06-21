@@ -149,7 +149,7 @@ class App extends Component {
               <div className="nadpis"><strong>KALKULAČKA</strong> CombiSet</div>
               {/* <button onClick={() => this.props.saveTheState()}>SAVE</button> */}
               <div className="logo">
-                <img src="images/logo.png" />
+                <img src="/images/logo.png" />
               </div>
             </div>
           </div>
@@ -183,7 +183,7 @@ class App extends Component {
             <Table_4 />
           </div>
         </section>
-        <section className="row margin-top-2">
+        <section id="save-feature" className="row margin-top-2">
           <div id="saveFeature" className="save-as wrap column">
             <h1>Stav aplikace</h1>
             <span>Načíst stav :</span>
