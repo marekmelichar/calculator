@@ -2,7 +2,7 @@
   "author": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline",
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 8081 --inline",
     "build": "webpack -p"
   },
   "license": "ISC",
