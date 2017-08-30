@@ -212,7 +212,9 @@ table input {
 }
 
 .rozdil_uspora table tbody tr:nth-child(2) td,
-.rozdil_uspora table tbody tr:nth-child(3) td {
+.rozdil_uspora table tbody tr:nth-child(3) td,
+.rozdil_uspora table tbody tr:nth-child(4) td,
+.rozdil_uspora table tbody tr:nth-child(5) td {
   border: none;
   background: #5caec9;
   color: #fff;
@@ -222,7 +224,9 @@ table input {
 }
 
 .rozdil_uspora table tbody tr:nth-child(2) td:first-child,
-.rozdil_uspora table tbody tr:nth-child(3) td:first-child {
+.rozdil_uspora table tbody tr:nth-child(3) td:first-child,
+.rozdil_uspora table tbody tr:nth-child(4) td:first-child,
+.rozdil_uspora table tbody tr:nth-child(5) td:first-child {
   width: 35%;
 }
 

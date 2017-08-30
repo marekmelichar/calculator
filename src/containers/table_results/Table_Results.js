@@ -62,7 +62,7 @@ class Table_Results extends Component {
       mesicne_sestra: 34000,
       mesicne_skladnik: 25000,
       pouziti_za_rok: 216,
-      pocet_komponent_v_setu_input: 11,
+      pocet_komponent_v_setu_input: 13, /* zmena 30.8. z hodnoty 11 na 13 */
       vykon_oddeleni_za_rok_input: 1250,
       pomer_vyuziti_input: 40
     };
@@ -215,11 +215,6 @@ class Table_Results extends Component {
     vychystavani_evidence_celkove_naklady_na_ks = parseFloat((vychystavani_ze_skladu_na_sale_naklady_na_ks + vychystavani_evidence_naklady_na_ks).toFixed(2))
     vychystavani_evidence_celkove_naklady = parseFloat((vychystavani_ze_skladu_na_sale_naklady + vychystavani_evidence_naklady).toFixed(2))
 
-
-
-
-
-
     // Skladovani COS - sestra - TABULKA :
 
     // 1. radek naklady na prijem(prevzeti)
@@ -260,6 +255,46 @@ class Table_Results extends Component {
     let vystup_celkove_naklady_za_rok_1_CPT_set = ((parseFloat(this.props.cena_za_komplet_set) + parseFloat(suma)) * parseFloat(this.props.celkovy_pocet_pouziti_za_rok)).toFixed(2)
     // let vystup_celkove_naklady_za_rok_Komponenty = ((parseFloat(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + parseFloat(suma_komponenty)) * parseFloat(this.props.celkovy_pocet_pouziti_za_rok) * 12).toFixed(2)
     let vystup_celkove_naklady_za_rok_Komponenty = ((parseFloat(this.props.celkova_cena_za_komponenty_v_setu_SUMA) + parseFloat(suma_komponenty)) * parseFloat(this.props.celkovy_pocet_pouziti_za_rok)).toFixed(2)
+
+
+    // SKLADOVANI COS SESTRA - NOVA FEATURA
+    let M11 = pouziti_za_tyden;
+    let D21 = M11 > 50 ? 5 : 1.25
+    let E21 = D21 / M11
+    let skladovani_COS_sestra_prijem_prevzeti_casova_rezie_na_kus_v_minutach = E21 * this.state.pocet_komponent_v_setu_input
+    // console.log('skladovani_COS_sestra_prijem_prevzeti_casova_rezie_na_kus_v_minutach', skladovani_COS_sestra_prijem_prevzeti_casova_rezie_na_kus_v_minutach)
+
+    let D22 = 45
+    let E22 = D22 / (M28 / M2)
+    let skladovani_COS_sestra_kontrola_expirace_casova_rezie_na_kus_v_minutach = E22 * this.state.pocet_komponent_v_setu_input
+    // console.log('skladovani_COS_sestra_kontrola_expirace_casova_rezie_na_kus_v_minutach', skladovani_COS_sestra_kontrola_expirace_casova_rezie_na_kus_v_minutach);
+
+    let D23 = 150
+    let E23 = (2 * D23) / (M28 / M2 * 7)
+    let skladovani_COS_2sestry_inventarizace_casova_rezie_na_kus_v_minutach = E23 * this.state.pocet_komponent_v_setu_input * 100
+    // console.log('skladovani_COS_2sestry_inventarizace_casova_rezie_na_kus_v_minutach', skladovani_COS_2sestry_inventarizace_casova_rezie_na_kus_v_minutach);
+
+    let soucet_skladovani_sestra_usporeno_v_minutach = Math.ceil(skladovani_COS_sestra_prijem_prevzeti_casova_rezie_na_kus_v_minutach + skladovani_COS_sestra_kontrola_expirace_casova_rezie_na_kus_v_minutach + skladovani_COS_2sestry_inventarizace_casova_rezie_na_kus_v_minutach)
+    let soucet_skladovani_sestra_usporeno_za_rok = soucet_skladovani_sestra_usporeno_v_minutach * 187.5 /* kalkulovatelna pracovni doba N2 v excelu */
+
+
+
+
+    // VYCHYSTAVANI NOVA FEATURA
+    let E2 = minutove_sestra
+    let E28 = 10/60
+    let F28 = E28 * E2
+    let vychystavani_ze_skladu_na_sale_casova_rezie_minut = E28 * this.state.pocet_komponent_v_setu_input
+    // console.log('vychystavani_ze_skladu_na_sale_casova_rezie_minut  - v minutach usporeno', vychystavani_ze_skladu_na_sale_casova_rezie_minut)
+
+    let E29 = 15/60
+    let F29 = E29 * E2
+    let evidence_spotrebovaneho_materialu_na_pacienta_na_sale = E29 * this.state.pocet_komponent_v_setu_input;
+    // console.log('evidence_spotrebovaneho_materialu_na_pacienta_na_sale - v minutach usporeno', evidence_spotrebovaneho_materialu_na_pacienta_na_sale)
+
+    let soucet_vychystavani_sestra_usporeno_v_minutach = Math.ceil(vychystavani_ze_skladu_na_sale_casova_rezie_minut + evidence_spotrebovaneho_materialu_na_pacienta_na_sale)
+    let soucet_vychystavani_sestra_usporeno_za_rok = soucet_vychystavani_sestra_usporeno_v_minutach * 187.5 /* kalkulovatelna pracovni doba N2 v excelu */
+
 
     return (
       <div>
@@ -334,6 +369,22 @@ class Table_Results extends Component {
                 <td>Komponenty</td>
                 <td>{vystup_celkove_naklady_za_rok_Komponenty.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
                 <td>{(vystup_celkove_naklady_za_rok_1_CPT_set - vystup_celkove_naklady_za_rok_Komponenty).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
+              </tr>
+              <tr>
+                <td>Celkové úspory sestra - skladování</td>
+                <td>CPT set</td>
+                <td>{soucet_skladovani_sestra_usporeno_v_minutach.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} min</td>
+                <td>Za 1 rok</td>
+                <td>{soucet_skladovani_sestra_usporeno_za_rok.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} min</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Celkové úspory sestra - vychystávání</td>
+                <td>CPT set</td>
+                <td>{soucet_vychystavani_sestra_usporeno_v_minutach.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} min</td>
+                <td>Za 1 rok</td>
+                <td>{soucet_vychystavani_sestra_usporeno_za_rok.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} min</td>
+                <td></td>
               </tr>
             </tbody>
           </table>
