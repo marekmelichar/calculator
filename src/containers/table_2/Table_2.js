@@ -105,7 +105,7 @@ class Table_2 extends Component {
           <tr>
             <td>Celková cena za komponenty v setu</td>
             {/* in case of rewriting the value only, use this line */}
-            <td><input type="text" value={this.state.celkova_cena} onChange={this.handleCelkovaCena} /> Kč</td>
+            <td><input type="text" value={Math.round(this.state.celkova_cena)} onChange={this.handleCelkovaCena} /> Kč</td>
             {/* in case of not overwriting the value, default is SUM of all Komponenty prices */}
             {/* <td><input type="text" value={ceny_komponent_v_setu_SUMA} /> Kč</td> */}
             {/* <td><NumberFormat displayType={'input'} decimalSeparator={","} value={this.state.celkova_cena.toString()} thousandSeparator={" "} onChange={this.handleCelkovaCena} /> Kč</td> */}

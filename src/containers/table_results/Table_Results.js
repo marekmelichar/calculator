@@ -371,6 +371,14 @@ class Table_Results extends Component {
                 <td>{(vystup_celkove_naklady_za_rok_1_CPT_set - vystup_celkove_naklady_za_rok_Komponenty).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} Kč</td>
               </tr>
               <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
                 <td>Celkové úspory sestra - skladování</td>
                 <td>CPT set</td>
                 <td>{soucet_skladovani_sestra_usporeno_v_minutach.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",")} min</td>
