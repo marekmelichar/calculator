@@ -17,7 +17,7 @@ class Table_3 extends Component {
   constructor() {
     super();
     this.state = {
-      vykony_na_oddeleni_za_rok: 0,
+      vykony_na_oddeleni_za_rok: 1,
       pomer_pouziti: 0
     };
 
@@ -57,8 +57,13 @@ class Table_3 extends Component {
         </thead>
         <tbody>
           <tr>
-            <td>Celkový počet výkonů na oddělení za rok</td>
-            <td><input type="text" value={this.state.vykony_na_oddeleni_za_rok} onChange={this.handle_vykony_na_oddeleni_za_rok} /></td>
+            <td>
+              Celkový počet výkonů na oddělení za rok
+              <p style={{color: 'red'}}>Při vložení nulové hodnoty nelze výpočet provést.</p>
+            </td>
+            <td>
+              <input type="text" value={this.state.vykony_na_oddeleni_za_rok} onChange={this.handle_vykony_na_oddeleni_za_rok} />
+            </td>
             {/* <td><NumberFormat displayType={'input'} decimalSeparator={","} value={this.state.vykony_na_oddeleni_za_rok.toString()} thousandSeparator={" "} onChange={this.handle_vykony_na_oddeleni_za_rok} /></td> */}
           </tr>
           <tr>
