@@ -25,10 +25,10 @@ class Table_3 extends Component {
     this.handle_pomer_pouziti = this.handle_pomer_pouziti.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.vykony_na_oddeleni_za_rok(this.state.vykony_na_oddeleni_za_rok);
-  //   this.props.pomer_vyuziti(this.state.pomer_pouziti);
-  // }
+  componentDidMount() {
+    this.props.vykony_na_oddeleni_za_rok(this.state.vykony_na_oddeleni_za_rok);
+    // this.props.pomer_vyuziti(this.state.pomer_pouziti);
+  }
 
   handle_vykony_na_oddeleni_za_rok(event) {
     this.setState({vykony_na_oddeleni_za_rok: event.target.value});
