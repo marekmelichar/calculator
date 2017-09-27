@@ -83,7 +83,13 @@ class Table_4 extends Component {
     items.forEach(function(item) {
       if(typeof item !== 'undefined') {
         // console.log('inside items forEach', item);
-        body.push([ item.komponenta, item.pocet_ks.toString().replace(".", ",") + ' ks', item.cena_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",") + ' Kč', item.cena_celkem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",") + ' Kč', "" ])
+        body.push([
+          item.komponenta,
+          item.pocet_ks.toString().replace(".", ",") + ' ks',
+          item.cena_ks.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",") + ' Kč',
+          item.cena_celkem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",") + ' Kč',
+          ""
+        ])
         suma_ks.push(parseFloat(item.pocet_ks))
         suma_celkova_cena.push(parseFloat(item.cena_celkem))
       }

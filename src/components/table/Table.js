@@ -80,7 +80,6 @@ class Table extends Component {
                     return (
                       <tr key={`.${i}`}>
                         {line.map(function(item, j){
-                          // if it is last item then use a className of status_color
                           return <td key={`.${i}.${j}`}>
                                     {item}
                                     <span className={j === tableBody[0].length - 1 ? 'edit-row' : ''} id={i} onClick={_this.initModal}>{j === tableBody[0].length - 1 ? "UPRAVIT" : ""}</span>{j === tableBody[0].length - 1 ? <Modal id={i} line={{line, i}} /> : ""}
